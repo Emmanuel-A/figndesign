@@ -1,0 +1,186 @@
+    <div class="block_row_wrapper">    
+        <div class="row">
+            {% for block in section.blocks %}
+              <div class="half_block show-desktop-{{ block.settings.show-desktop }}">
+                {% if block.settings.image_desktop != blank %}
+                {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+                {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+                {%- assign img_url = block.settings.image_desktop | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {% include 'image-style' with image_desktop: block.settings.image_desktop, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+                <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+                {% comment %} <div class="button_wrapper">
+                    <div class="button campaign"><a href="{{ block.settings.btnUrl }}"><span class="link_text">Campaign</span></a></div>
+                    <div class="button lookbook"><a href="{{ block.settings.lookUrl }}"><span class="link_text">Lookbook</span></a></div>
+                </div> {% endcomment %}
+                <a href="{{ block.settings.btnLink }}" title="{{ block.settings.content }}">
+                  <span class="block_image_info">
+                    <p class="image_details">{{ block.settings.content }}</p>
+                    <p class="shop_btn">{{ block.settings.btnText }}</p>
+                  </span>
+                  <img src="{{ block.settings.image_desktop | img_url: '1080x1080', scale: 3 }}" class="desktop_image">
+                  <img src="{{ block.settings.image_mobile | img_url: '1024x1024', scale: 3 }}" class="mobile_image">
+                    {% comment %} {% include 'responsive-image' with
+                    image: block.settings.image | img_url: '1080x1080',
+                    image_class: "image",
+                    wrapper_class: "image-wrapper" %} {% endcomment %}
+                </a>
+                {% endif %}
+              </div>
+
+              <div class="strip_block">
+                {% if block.settings.strip_desktop != blank %}
+                {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+                {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+                {%- assign img_url = block.settings.strip_desktop | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {% include 'image-style' with strip_desktop: block.settings.strip_desktop, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+                <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+                {% comment %} <div class="button_wrapper">
+                    <div class="button campaign"><a href="{{ block.settings.btnUrl }}"><span class="link_text">Campaign</span></a></div>
+                    <div class="button lookbook"><a href="{{ block.settings.lookUrl }}"><span class="link_text">Lookbook</span></a></div>
+                </div> {% endcomment %}
+                <a href="{{ block.settings.strip_btnlink }}" title="{{ block.settings.strip_content }}">
+                  <span class="block_image_info  {{ block.settings.alignment }}">
+                    <p class="image_details">{{ block.settings.strip_content }}</p>
+                    <p class="shop_btn">{{ block.settings.strip_btntext }}</p>
+                  </span>
+                  <img src="{{ block.settings.strip_desktop | img_url: '1080x1080', scale: 3 }}" class="desktop_image">
+                  <img src="{{ block.settings.strip_mobile | img_url: '1024x1024', scale: 3 }}" class="mobile_image">
+                    {% comment %} {% include 'responsive-image' with
+                    image: block.settings.image | img_url: '1080x1080',
+                    image_class: "image",
+                    wrapper_class: "image-wrapper" %} {% endcomment %}
+                </a>
+                {% endif %}
+              </div>
+
+                {% comment %} <noscript>
+                {{ block.settings.image | img_url: '1080x1080', scale: 3 | img_tag: block.settings.image.alt, 'feature-row__image' }}
+                </noscript> {% endcomment %}
+                {% comment %} {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %} {% endcomment %}
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "Home Page Blocks",
+  "class": "box-grid",
+  "blocks": [
+    {
+      "type": "home_blocks",
+      "name": "Half Block",
+      "settings": [
+        {
+          "label": "Desktop Image",
+          "id": "image_desktop",
+          "type": "image_picker"
+        },
+         {
+          "label": "Mobile Image",
+          "id": "image_mobile",
+          "type": "image_picker"
+        },
+        {
+          "label": "Content",
+          "id": "content",
+          "type": "text"
+        },
+        {
+          "label": "Button text",
+          "id": "btnText",
+          "type": "text"
+        },
+        {
+          "label": "Button link",
+          "id": "btnLink",
+          "type": "url"
+        },
+        {
+          "type": "radio",
+          "id": "show-desktop",
+          "label": "Show on desktop",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ],
+          "default": "no"
+        }
+      ]
+    },
+    {
+      "type": "strip_blocks",
+      "name": "Strip Block",
+      "settings": [
+        {
+          "label": "Desktop Image",
+          "id": "strip_desktop",
+          "type": "image_picker"
+        },
+         {
+          "label": "Mobile Image",
+          "id": "strip_mobile",
+          "type": "image_picker"
+        },
+        {
+          "label": "Content",
+          "id": "strip_content",
+          "type": "text"
+        },
+        {
+          "label": "Button text",
+          "id": "strip_btntext",
+          "type": "text"
+        },
+        {
+          "label": "Button link",
+          "id": "strip_btnlink",
+          "type": "url"
+        },
+        {
+          "type": "radio",
+          "id": "show-desktop",
+          "label": "Show on desktop",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ],
+          "default": "yes"
+        },
+        {
+          "type":      "radio",
+          "id":        "alignment",
+          "label":     "Text Alignment",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+

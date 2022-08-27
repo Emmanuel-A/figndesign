@@ -1,0 +1,97 @@
+
+<script>
+  var __productWizRio = {};
+  (function() {
+    {% if product %}
+      var product = {{product | json}};
+      var productMetafield = {{product.metafields.productwiz.rio | json}};
+      var shopMetafield = {{shop.metafields.productwiz.rio | json}};
+
+      __productWizRio.enabled = false;
+      if (Array.isArray(product.variants) && product.variants.length > 1 && Array.isArray(product.media) && product.media.length > 0) {
+        if (!shopMetafield || !shopMetafield.disabled) {
+          if (productMetafield && productMetafield.enabled && !productMetafield.empty) {
+            __productWizRio.enabled = true;
+            __productWizRio.product = {{product | json}};
+            __productWizRio.productRio = productMetafield.mapping;
+          }
+        }
+      }
+    {% else %}
+      __productWizRio.enabled = false;
+    {% endif %}
+    if (__productWizRio.enabled) {
+      
+function callback(mutations) {
+  mutations.forEach(function (mutation) {
+    Array.prototype.forEach.call(mutation.addedNodes, function (addedNode) {
+      if (typeof addedNode.className === 'string') {
+        if (!__productWizRio.config) {
+__productWizRio.config = {
+  "breakpoint": "750px",
+  "mobile": {
+    "navigation": false,
+    "pagination": false,
+    "swipe": false,
+    "dark": true,
+    "magnify": false,
+    "thumbnails": {
+      "orientation": "bottom",
+      "multiRow": false,
+      "thumbnailsPerRow": 3,
+      "navigation": true
+    },
+    "lightBox": false,
+    "lightBoxZoom": 2
+  },
+  "desktop": {
+    "navigation": false,
+    "pagination": false,
+    "swipe": false,
+    "dark": true,
+    "magnify": false,
+    "thumbnails": {
+      "orientation": "bottom",
+      "multiRow": true,
+      "thumbnailsPerRow": 4,
+      "navigation": false
+    },
+    "lightBox": false,
+    "lightBoxZoom": 2
+  }
+};
+}
+
+try {
+  var isContainer = addedNode.className.indexOf('product-single__photos') > -1 || addedNode.className.indexOf('product-single__media-group') > -1;
+
+  if (isContainer) {
+    addedNode.setAttribute('style', 'padding-bottom: 15px;');
+
+    while (addedNode.firstChild) {
+      addedNode.removeChild(addedNode.firstChild);
+    }
+
+    addedNode.className += ' rio-media-gallery';
+  }
+
+  if (addedNode.className.indexOf('product-single__thumbnails') > -1) {
+    addedNode.parentNode.removeChild(addedNode);
+  }
+} catch (err) {}
+      }
+    });
+  });
+}
+var observer = new MutationObserver(callback);
+var config = { childList: true, subtree: true };
+window.addEventListener('load', function () {
+  observer.disconnect();
+});
+observer.observe(document, config);
+
+    }
+  })();
+</script>
+<link rel="stylesheet" href="https://pwzcdn.com/rio-store/prod/1.3.0/index.css">
+<script src="https://pwzcdn.com/rio-store/prod/1.3.0/index.js" async></script>

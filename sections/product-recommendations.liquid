@@ -1,251 +1,166 @@
-<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
-
-<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations class="product-recommendations page-width section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
-    {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="product-recommendations__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
-      <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" role="list">
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating
-            %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </product-recommendations>
-</div>
-
-{% javascript %}
-  class ProductRecommendations extends HTMLElement {
-    constructor() {
-      super();
-
-      const handleIntersection = (entries, observer) => {
-        if (!entries[0].isIntersecting) return;
-        observer.unobserve(this);
-
-        fetch(this.dataset.url)
-          .then(response => response.text())
-          .then(text => {
-            const html = document.createElement('div');
-            html.innerHTML = text;
-            const recommendations = html.querySelector('product-recommendations');
-
-            if (recommendations && recommendations.innerHTML.trim().length) {
-              this.innerHTML = recommendations.innerHTML;
-            }
-
-            if (html.querySelector('.grid__item')) {
-              this.classList.add('product-recommendations--loaded');
-            }
-          })
-          .catch(e => {
-            console.error(e);
-          });
-      }
-
-      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
-    }
-  }
-
-  customElements.define('product-recommendations', ProductRecommendations);
-{% endjavascript %}
+{%- if section.settings.show_product_recommendations -%}
+  {%- if recommendations.performed -%}
+    {%- if recommendations.products_count > 0 -%}
+      <div class="product-recommendations__inner">
+        {%- if section.settings.heading != blank -%}
+          <div class="section-header text-center">
+            <div class="recommended">
+              <div class="title_wrapper">
+                <p class="title">Reccomended</p>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        <ul class="grid grid--uniform grid--view-items">
+          {%- for product in recommendations.products -%}
+            <li class="grid__item small--one-half medium-up--one-quarter">
+              {% include 'product-card-grid' %}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  {%- else  -%}
+    <div class="page-width" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
+  {%- endif -%}
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "t:sections.product-recommendations.name",
-  "tag": "section",
-  "class": "section",
+  "name": {
+    "da": "Produktanbefalinger",
+    "de": "Produktempfehlungen",
+    "en": "Product recommendations",
+    "es": "Recomendaciones de productos",
+    "fi": "Tuotesuositukset",
+    "fr": "Recommandations de produits",
+    "hi": "उत्पाद की अनुशंसाएं",
+    "it": "Raccomandazioni sui prodotti",
+    "ja": "商品の推奨",
+    "ko": "제품 권장 사항",
+    "nb": "Produktanbefalinger",
+    "nl": "Productaanbevelingen",
+    "pt-BR": "Recomendações de produtos",
+    "pt-PT": "Recomendações de produtos",
+    "sv": "Produktrekommendationer",
+    "th": "คำแนะนำสินค้า",
+    "zh-CN": "产品推荐",
+    "zh-TW": "商品推薦"
+  },
   "settings": [
     {
-      "type": "paragraph",
-      "content": "t:sections.product-recommendations.settings.paragraph__1.content"
+      "type": "checkbox",
+      "id": "show_product_recommendations",
+      "label": {
+        "da": "Vis dynamiske anbefalinger",
+        "de": "Dynamische Empfehlungen anzeigen",
+        "en": "Show dynamic recommendations",
+        "es": "Mostrar recomendaciones dinámicas",
+        "fi": "Näytä dynaamiset suositukset",
+        "fr": "Afficher les recommandations dynamiques",
+        "hi": "डायनेमिक सुझाव दिखाएं",
+        "it": "Mostra raccomandazioni dinamiche",
+        "ja": "動的推奨を表示する",
+        "ko": "동적 권장 사항 표시",
+        "nb": "Vis dynamiske anbefalinger",
+        "nl": "Dynamische aanbevelingen weergeven",
+        "pt-BR": "Mostrar recomendações dinâmicas",
+        "pt-PT": "Mostrar recomendações dinâmicas",
+        "sv": "Visa dynamiska rekommendationer",
+        "th": "แสดงคำแนะนำแบบไดนามิก",
+        "zh-CN": "显示动态推荐",
+        "zh-TW": "顯示動態推薦"
+      },
+      "info": {
+        "da": "Dynamiske anbefalinger ændres og forbedres med tiden. [Få mere at vide](https://help.shopify.com/en/themes/development/recommended-products)",
+        "de": "Dynamische Empfehlungen werden im Laufe der Zeit angepasst und verbessert. [Mehr Informationen](https://help.shopify.com/en/themes/development/recommended-products)",
+        "en": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+        "es": "Las recomendaciones dinámicas cambian y mejoran con el tiempo. [Más información](https://help.shopify.com/en/themes/development/recommended-products)",
+        "fi": "Dynaamiset suositukset muuttuvat ja paranevat ajan myötä. [Lisätietoja](https://help.shopify.com/en/themes/development/recommended-products)",
+        "fr": "Les recommandations dynamiques changent et s'améliorent avec le temps. [En savoir plus](https://help.shopify.com/en/themes/development/recommended-products)",
+        "hi": "समय के साथ डायनेमिक सुझाव परिवर्तन और सुधार. [अधिक जानें](https://help.shopify.com/en/themes/development/recommended-products)",
+        "it": "Le raccomandazioni dinamiche cambiano e migliorano nel tempo. [Maggiori informazioni](https://help.shopify.com/en/themes/development/recommended-products)",
+        "ja": "動的推奨は時間とともに変化し改善します。[詳細情報](https://help.shopify.com/en/themes/development/recommended-products)",
+        "ko": "동적 권장 사항은 시간이 지나면서 변하고 개선됩니다. [자세히 알아보기](https://help.shopify.com/en/themes/development/recommended-products)",
+        "nb": "Dynamiske anbefalinger endrer seg og forbedres med tiden. [Finn ut mer](https://help.shopify.com/en/themes/development/recommended-products)",
+        "nl": "Dynamische aanbevelingen veranderen en verbeteren mettertijd. [Meer informatie](https://help.shopify.com/en/themes/development/recommended-products)",
+        "pt-BR": "As recomendações dinâmicas mudam e melhoram com o tempo. [Saiba mais](https://help.shopify.com/en/themes/development/recommended-products)",
+        "pt-PT": "As recomendações dinâmicas mudam e melhoram com o tempo. [Saiba mais](https://help.shopify.com/en/themes/development/recommended-products)",
+        "sv": "Dynamiska rekommendationer ändras och förbättras med tiden. [Läs mer](https://help.shopify.com/en/themes/development/recommended-products)",
+        "th": "คำแนะนำแบบไดนามิกนั้นเปลี่ยนแปลงและถูกปรับปรุงให้ดีขึ้นตลอดเวลา [เรียนรู้เพิ่มเติม](https://help.shopify.com/en/themes/development/recommended-products)",
+        "zh-CN": "动态推荐会随着时间而变化和改进。[了解详细信息](https://help.shopify.com/en/themes/development/recommended-products)",
+        "zh-TW": "動態推薦會隨著時間改變與改進。[深入瞭解](https://help.shopify.com/en/themes/development/recommended-products)"
+      },
+      "default": true
     },
     {
       "type": "text",
       "id": "heading",
-      "default": "You may also like",
-      "label": "t:sections.product-recommendations.settings.heading.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
-        },
-        {
-          "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
-        },
-        {
-          "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
-        }
-      ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 10,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.product-recommendations.settings.products_to_show.label"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 5,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.product-recommendations.settings.columns_desktop.label"
-    },
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "accent-1",
-          "label": "t:sections.all.colors.accent_1.label"
-        },
-        {
-          "value": "accent-2",
-          "label": "t:sections.all.colors.accent_2.label"
-        },
-        {
-          "value": "background-1",
-          "label": "t:sections.all.colors.background_1.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.all.colors.background_2.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.all.colors.inverse.label"
-        }
-      ],
-      "default": "background-1",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.product-recommendations.settings.header__2.content"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.product-recommendations.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.product-recommendations.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.product-recommendations.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.product-recommendations.settings.image_ratio.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_secondary_image",
-      "default": false,
-      "label": "t:sections.product-recommendations.settings.show_secondary_image.label"
+      "label": {
+        "da": "Overskrift",
+        "de": "Überschrift",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Du vil muligvis også synes om",
+        "de": "Das könnte Ihnen auch gefallen",
+        "en": "You may also like",
+        "es": "También te puede interesar",
+        "fi": "Saatat pitää myös näistä",
+        "fr": "Vous pourriez aimer également",
+        "hi": "आप शायद इसे भी पसंद करें",
+        "it": "Potrebbero interessarti anche",
+        "ja": "あなたへのおすすめ",
+        "ko": "회원님도 좋아할 것입니다.",
+        "nb": "Kanskje du også liker",
+        "nl": "Wellicht vindt u dit ook leuk",
+        "pt-BR": "Talvez você também goste de",
+        "pt-PT": "Também poderá gostar de",
+        "sv": "Du kanske också gillar",
+        "th": "คุณอาจจะชอบ",
+        "zh-CN": "您可能还喜欢",
+        "zh-TW": "您也可能喜歡"
+      }
     },
     {
       "type": "checkbox",
       "id": "show_vendor",
-      "default": false,
-      "label": "t:sections.product-recommendations.settings.show_vendor.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "default": false,
-      "label": "t:sections.product-recommendations.settings.show_rating.label",
-      "info": "t:sections.product-recommendations.settings.show_rating.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.product-recommendations.settings.header_mobile.content"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "default": "2",
-      "label": "t:sections.product-recommendations.settings.columns_mobile.label",
-      "options": [
-        {
-          "value": "1",
-          "label": "t:sections.product-recommendations.settings.columns_mobile.options__1.label"
-        },
-        {
-          "value": "2",
-          "label": "t:sections.product-recommendations.settings.columns_mobile.options__2.label"
-        }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "label": {
+        "da": "Vis leverandør",
+        "de": "Lieferanten anzeigen",
+        "en": "Show vendor",
+        "es": "Mostrar proveedor",
+        "fi": "Näytä myyjä",
+        "fr": "Afficher les vendeurs",
+        "hi": "विक्रेता दिखाएं",
+        "it": "Mostra fornitore",
+        "ja": "販売元を表示する",
+        "ko": "공급업체 표시",
+        "nb": "Vis leverandør",
+        "nl": "Leverancier weergeven",
+        "pt-BR": "Exibir fornecedor",
+        "pt-PT": "Mostrar fornecedor",
+        "sv": "Visa säljare",
+        "th": "แสดงผู้ขาย",
+        "zh-CN": "显示厂商",
+        "zh-TW": "顯示廠商"
+      },
+      "default": false
     }
   ]
 }

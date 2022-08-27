@@ -1,0 +1,12 @@
+<div class="accounts_sidebar">
+    <h1>Account</h1>
+    <div class="accounts_nav">
+        <p class="current_page"><span class="arrow">{% include 'icon-white-arrow' %}</span>Account</p>
+        <ul>
+            <li><a href="/account">Account information</a></li>
+            <li><a href="/account/addresses">Address Book</a></li>
+            <li><a href="/pages/orders">Orders</a></li>
+            <li>{{ 'layout.customer.log_out' | t | customer_logout_link }}</li>
+        </ul>
+    </div>
+</div>

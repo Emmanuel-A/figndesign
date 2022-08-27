@@ -1,0 +1,38 @@
+<div class="lookbook_content">
+    <p style="text-align: center;">{{ section.settings.title }}</p>
+</div>
+
+<div id="slider">
+    {% for block in section.blocks %}
+        <li><img src="{{ block.settings.image | img_url: '2500x2500' }}" alt="" /></li>
+    {% endfor %}
+    
+</div>
+
+
+{% schema %}
+{
+    "name": "Lookbook Images",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "title",
+            "default": "SOUND LIKE IT LOOKS 2020 LOOKBOOK",
+            "label": "Title"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Photo"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+{% for block in section.blocks %}
+    <h1>{{ section.settings.header }}</h1>
+    {{ block.settings.episode }}
+    <a href="{{ section.settings.btn_link }}" target="_blank" title="Listen to all playlists">{{ section.settings.btn_text }}</a>
+{% endfor %}
+
+{% schema %}
+{
+  "name": {
+    "en": "iTunes Playlist"
+  },
+  "class": "radio-playlist",
+  "settings": [
+    {
+        "id": "header",
+        "type": "text",
+        "label": "Header",
+        "default": "Asterisks* Radio"
+    },
+    {
+        "id": "btn_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "Listen to all playlists"
+    },
+    {
+        "id": "btn_link",
+        "type": "url",
+        "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": {
+        "en": "Playlist"
+      },
+      "settings": [
+        {
+          "label": "Radio Playlist",
+          "id": "episode",
+          "type": "html"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

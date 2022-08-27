@@ -1,0 +1,22 @@
+
+<div class="page-wrap login_form login-form">
+    <section class="container">
+        <div  class="row">
+            <div class="col-md-6"> 
+                {% form 'recover_customer_password' %} {{ form.errors | default_errors }}
+                    <h2>Recover Account</h2>
+                    <p>Enter your email and we'll send you a link to reset your password.</p>
+                    <input id="user_email" type="email" name="email" class="form_field default_mod" required>
+                    <div class="form-footer">
+                        <div class="col-md-6">
+                            <a href="/account/login" class="sign-in">Login</a>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" value="Recover" class="recover-btn" />
+                        </div>
+                    </div>
+                {% endform %} 
+            </div>
+        </div>
+    </section>
+</div>

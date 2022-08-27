@@ -1,0 +1,47 @@
+<div class="all-collections">
+  <p class="heading">Collections</p>
+  <ul class="collection-links">
+    <li><a href="/pages/fall-winter-campaign" class="link">The Prelude</a></li>
+    <li><a href="/pages/sound-like-it-looks-campaign" class="link">Sounds Like It Looks©</a></li>
+    <li><a href="/pages/compliments-of-the-company-lookbook" class="link">Compliments of the Company</a></li>
+    <li><a href="/pages/the-dream-a-life-offline-campaign" class="link">The Dream - 'A Life Offline Campaign'</a></li>
+    <li><a href="/pages/failing-is-falling-campaign" class="link">Failing is Falling</a></li>
+    <li><a href="/pages/do-it-in-the-dark-lookbook" class="link">Do it in the Dark</a></li>
+  </ul>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "All Collections",
+  "class": "all-collections",
+  "settings": [
+    {
+      "label": "Content",
+      "id": "content",
+      "type": "textarea"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "collection-name",
+          "label": "Collection Name",
+          "default": "The Prelude"
+        },
+        {
+          "type": "url",
+          "id": "collection-link",
+          "label": "Collection Link"
+        }
+      ] 
+    }     
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,115 @@
+<div class="page-width">
+    {% for block in section.blocks %}
+    <div class="collection_wrapper">    
+        <div class="row">
+            <div class="feature-row__item">
+                {% if block.settings.image != blank %}
+                    {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+                    {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    {% include 'image-style' with image: block.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+                    <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+                      <div class="button_wrapper">
+                          <div class="button experience"><a href="{{ block.settings.experience }}"><span class="link_text">Experience</span></a></div>
+                      </div>
+                      <div style="" class="collection_image">
+                        <img src="{{ block.settings.image | img_url: '2048x2048', scale: 3 }}" class="image">
+                      {% comment %} {% include 'responsive-image' with
+                          image: block.settings.image,
+                          image_class: "image",
+                          wrapper_class: "image-wrapper",
+                          max_width: 1440,
+                          max_height: 800 %} {% endcomment %}
+                      </div>
+                    </div>  
+
+                    {% comment %} <noscript>
+                      {{ block.settings.image | img_url: '2048x2048', scale: 3 | img_tag: block.settings.image.alt, 'feature-row__image' }}
+                    </noscript> {% endcomment %}
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+            </div>
+            <div class="title_wrapper">
+                <p class="title collection_name">{{block.settings.collection}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": {
+    "en": "Retail Experiences"
+  },
+  "class": "gollection-box-grid",
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": {
+        "en": "Experience"
+      },
+      "settings": [
+        {
+          "label": "Experience name",
+          "id": "collection",
+          "type": "text",
+          "default": "Failing is Falling"
+        },
+        {
+          "label": "Image",
+          "id": "image",
+          "type": "image_picker"
+        },
+        {
+          "label": "Experience",
+          "id": "experience",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Kollektionsliste",
+        "de": "Kategorien-Liste",
+        "en": "Collection Grid",
+        "es": "Lista de colecciones",
+        "fi": "Kokoelmaluettelo",
+        "fr": "Page de liste des collections",
+        "hi": "कलेक्शन सूची",
+        "it": "Elenco delle collezioni",
+        "ja": "コレクションリスト",
+        "ko": "컬렉션 목록",
+        "nb": "Samlingsliste",
+        "nl": "Collectielijst",
+        "pt-BR": "Lista de coleções",
+        "pt-PT": "Lista de coleções",
+        "sv": "Kollektionslista",
+        "th": "รายการคอลเลกชัน",
+        "zh-CN": "产品系列列表",
+        "zh-TW": "商品系列清單"
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
