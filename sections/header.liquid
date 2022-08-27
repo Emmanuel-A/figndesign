@@ -92,7 +92,7 @@
         }
       </style>
 
-      {% if section.settings.message_link == blank %}
+      {% comment %} {% if section.settings.message_link == blank %}
         <div class="announcement-bar">
       {% else %}
         <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
@@ -106,7 +106,7 @@
         <p class="announcement-bar__message">Free shipping</p>
       {% else %}
         <p class="announcement-bar__message">You are <span class="cart-subtotal" id="cart-subtotal-header">${{ remainderTotal }}</span> away from <span class="free-shipping">free shipping</p>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
       <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
