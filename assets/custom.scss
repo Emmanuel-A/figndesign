@@ -615,7 +615,6 @@ body {
         }
     }
     .site-header {
-        top: 30px !important;
         background-color: #ffffff !important;
         padding: 0;
         height: 40px;
@@ -915,7 +914,6 @@ body {
             transform: none !important;
             transition: none !important;
             .main-content {
-                margin: 70px 0 0 0;
                 #shopify-section-video-slideshow {
                     position: relative;
                     .videoSlideshow {
@@ -1235,10 +1233,6 @@ body {
     }
 
     .main-content {
-      	// margin: 70px 0 0 0 !important;
-        @media screen and (max-width: 767px) {
-            margin: 70px 0 0 0 !important;   
-        }
         padding: 0;
         #shopify-section-lookbook-images {
             p {

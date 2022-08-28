@@ -1369,11 +1369,11 @@ html {
 
 .main-content {
   display: block;
-  padding-top: $section-spacing-small;
+  // padding-top: $section-spacing-small;
 
-  @include media-query($medium-up) {
-    padding-top: $section-spacing;
-  }
+  // @include media-query($medium-up) {
+  //   padding-top: $section-spacing;
+  // }
 }
 
 .section-header {
@@ -3170,13 +3170,13 @@ $slick-dot-size-small: 10px;
 
 /*================ Index sections ================*/
 .index-section {
-  padding-top: $section-spacing-small;
-  padding-bottom: $section-spacing-small;
+  // padding-top: $section-spacing-small;
+  // padding-bottom: $section-spacing-small;
 
-  @include media-query($medium-up) {
-    padding-top: $section-spacing;
-    padding-bottom: $section-spacing;
-  }
+  // @include media-query($medium-up) {
+  //   padding-top: $section-spacing;
+  //   padding-bottom: $section-spacing;
+  // }
 
   &:first-child {
     padding-top: 0;
@@ -4001,9 +4001,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 @include media-query($small) {
-  .template-product .main-content {
-    padding-top: $grid-gutter-mobile;
-  }
+  // .template-product .main-content {
+  //   padding-top: $grid-gutter-mobile;
+  // }
   .product-single__media-group {
     position: relative;
   }
