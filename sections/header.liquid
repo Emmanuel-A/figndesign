@@ -14,37 +14,7 @@
     </div>
   </div>
   <div class="menu-container">
-      <p class="heading">Collections</p>
-      <ul>
-        <li><a href="/pages/summer-of-sounds">Summer of Sounds</a>
-        <li><a href="/pages/fall-winter-campaign">The Prelude</a></li>
-        <li><a href="/pages/sound-like-it-looks-campaign">Sounds Like It Looks©</a></li>
-        <li><a href="/pages/compliments-of-the-company-lookbook">Compliments of the Company</a></li>
-        <li><a class="show-all" href="/pages/all-collections">Show all</a></li>
-      </ul>
-
-      <p class="heading">Category</p>
-      <ul class="">
-        <li><a href="/collections/sounds©-by-adidem-asterisks">New Arrivals</a></li>
-        <li><a href="/collections/tops">Tops</a></li>
-        <li><a href="/collections/sweaters">Sweaters</a></li>
-        <li><a href="/collections/bottoms">Bottoms</a></li>
-        <li><a href="/collections/hats">Hats</a></li>
-        <li><a href="/collections/pins">Accessories</a></li>
-        <li><a class="show-all" href="/collections/all">Shop All</a></li>
-      </ul>
-
-      <p class="heading">Focus</p>
-      <ul>
-        <li><a href="/pages/sound">Asterisks* Radio</a></li>
-        {% comment %} <li><a href="/pages/spotlight">Spotlight</a></li> {% endcomment %}
-      </ul>
-
-      <ul>
-        <li><a href="/account">Account</a></li>
-        <li><a href="/pages/shipping-and-returns">Assistance</a></li>
-      </ul>
-      
+    {% include 'site-nav', linklist: section.settings.main_linklist %}
   </div>
 </div>
 
@@ -136,11 +106,11 @@
         {% endcomment %}
       <nav class="grid__item medium-up--one-half" id="AccessibleNav" role="navigation">
         <div class="mobile_logo">
-          <a href="/">{% include 'stacked-logo' %}</a>
-        </div>
-        <div class="small--hide">
+          <a href="/">{% include 'fign-logo-black' %}</a>
+        </div> 
+        {% comment %} <div class="small--hide">
           {% include 'site-nav', linklist: section.settings.main_linklist %}
-        </div>
+        </div> {% endcomment %}
       </nav>
 
       {% if section.settings.align_logo == 'center' %}

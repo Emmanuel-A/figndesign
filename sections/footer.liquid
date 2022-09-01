@@ -153,42 +153,14 @@
           <div class="footer_block">
             <div class="footer_links">
               <div class="links_wrapper">
-                <p class="stay_updated">
+                <p class="heading">
                 <span class="stay_updated_arrow">
                   {% include 'black-arrow-right' %}
-                </span>Stay Updated</p>
-                <div class="site-footer__newsletter {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
-                  {% form 'customer' %}
-                    {% comment %} <input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">
-                    <input type="hidden" name="contact[tags]" value="newsletter"> {% endcomment %}
-                    <div class="input-group ">
-                      <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter" />
-                      <input id="ContactFooter-email" class="omnisend-subscribe-input-email" name="contact[email]" type="text" value="" placeholder="Enter your email here" aria-label="Email address" aria-required="true" required autocorrect="off" autocapitalize="off"/>
-                      {% comment %} <input type="email" name="contact[email]" id="ContactFooter-email" class="omnisend-subscribe-input-email" value="" placeholder="Enter your email here" aria-label="Email address" aria-required="true" required autocorrect="off" autocapitalize="off"> {% endcomment %}
-                      <span class="input-group__btn">
-                        <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
-                          <span class="newsletter__submit-text--large">Subscribe</span>
-                        </button>
-                      </span>
-                    </div>
-                    <p class="message_error">Invalid email.</p>
-                    <p class="message_success">Thank you for subscribing.</p>
-                  {% endform %}
-                  {% comment %} {% form 'customer' %}
-                    <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter" />
-                    <table>
-                    <tbody>
-                    <tr>
-                    <td>Enter in your email to join our mailing list:</td>
-                    <td><input id="contact_email" name="contact[email]" type="text" /></td>
-                    </tr>
-                    <tr>
-                    <td colspan="2"><input class="submit" type="submit" /></td>
-                    </tr>
-                    </tbody>
-                    </table>
-                  {% endform %} {% endcomment %}
-                </div>
+                </span>Information</p>
+                <p>{{ section.settings.about-info }}</p>
+                  <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
+                    <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
+                  </div>
               </div>
             </div>
           </div>
@@ -196,32 +168,10 @@
           <div class="footer_block">
             <div class="footer_links">
               <div class="links_wrapper">
-                <p class="">
+                <p class="heading">
                 <span class="black_arrow">
                   {% include 'black-arrow-right' %}
-                </span>Online Shop</p>
-                <ul class="shop">
-                  <li><a href="/collections/all">All</a></li>
-                  <li><a href="/collections/bottoms">Bottoms</a></li>
-                  <li><a href="/collections/hats">Hats</a></li>
-                  {% comment %} <li><a href="/collections/knitwear">Knitwear</a></li> {% endcomment %} 
-                  {% comment %} <li><a href="/collections/outerwear">Outerwear</a></li> {% endcomment %} 
-                  <li><a href="/collections/sweaters">Sweaters</a></li>
-                  <li><a href="/collections/tops">Tops</a></li>
-                  {% comment %} <li><a href="/collections/beanies">Beanies</a></li> {% endcomment %} 
-                  {% comment %} <li><a href="/collections/sale">SALE</a></li> {% endcomment %}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer_block">
-            <div class="footer_links">
-              <div class="links_wrapper">
-                <p class="">
-                <span class="black_arrow">
-                  {% include 'black-arrow-right' %}
-                </span>Assistance</p>
+                </span>Navigation</p>
                 <ul class="assistance">
                   <li><a href="/pages/profile">About</a></li>
                   <li><a href="/pages/contact">Contact</a></li>
@@ -236,14 +186,25 @@
           <div class="footer_block">
             <div class="footer_links">
               <div class="links_wrapper">
-                <p class="">
+                <p class="heading">
                 <span class="black_arrow">
                   {% include 'black-arrow-right' %}
-                </span>Stockist</p>
-                <ul class="retail_exp">
-                  <li><a href="/pages/retail-experiences">Retail Experience</a></li>
-                  <!-- <li><a href="">Store Locator</a></li> -->
-                </ul>
+                </span>Contact Us</p>
+                <div class="site-footer__newsletter {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                  {% form 'customer' %}
+                    <div class="input-group ">
+                      <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter" />
+                      <input id="ContactFooter-email" class="omnisend-subscribe-input-email" name="contact[email]" type="text" value="" placeholder="Email address" aria-label="Email address" aria-required="true" required autocorrect="off" autocapitalize="off"/>
+                      <span class="input-group__btn">
+                        <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                          <span class="newsletter__submit-text--large">Subscribe</span>
+                        </button>
+                      </span>
+                    </div>
+                    <p class="message_error">Invalid email.</p>
+                    <p class="message_success">Thank you for subscribing.</p>
+                  {% endform %}
+                </div>
                 <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
                   <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
                 </div>
@@ -252,10 +213,6 @@
           </div>
         </div>
       </div>
-
-      {% comment %} <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-        <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
-      </div> {% endcomment %}
     </div>
   </div>
 </footer>
@@ -286,6 +243,12 @@
   },
   "max_blocks": 4,
   "settings": [
+    {
+      "type": "text",
+      "id": "about-info",
+      "label": "Information Content",
+      "info": "Content about the company"
+    },
     {
       "type": "header",
       "content": {

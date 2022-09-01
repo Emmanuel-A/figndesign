@@ -616,7 +616,7 @@ body {
     }
     .site-header {
         background-color: #ffffff !important;
-        padding: 0;
+        padding: 30px 0;
         height: 40px;
         display: flex;
         justify-content: center;
@@ -1593,7 +1593,7 @@ body {
                 }
             }
             .price_wrapper {
-                display: flex;
+                display: none;
                 width: 100%;
                 bottom: 10px;
                 position: absolute;
@@ -4412,8 +4412,8 @@ body {
                     min-height: 300px;
                     padding: 20px 15px;
                     font-size: 13px;
-                    border-left: 1px solid #d4d4d459;
-                    border-right: 1px solid #d4d4d459;
+                    // border-left: 1px solid #d4d4d459;
+                    // border-right: 1px solid #d4d4d459;
                     @media screen and (max-width: 991px) {
                         width: 100%;
                         border-bottom: 1px solid #d4d4d459;
@@ -4422,11 +4422,9 @@ body {
                         min-height: auto;
                         padding: 10px 15px;
                     }
-                    // &:nth-child(2) {
-                    //     @media screen and (max-width: 749px) {
-                    //         order: 4;
-                    //     }
-                    // }
+                    &:nth-child(2) {
+                        width: 50%;
+                    }
                     &.empty {
                         display: none;
                         @media screen and (max-width: 991px) {
@@ -4439,8 +4437,12 @@ body {
                         .links_wrapper {
                             p {
                                 margin: 0 0 20px 0;
+                                max-width: 400px;
                                 @media screen  and (max-width: 991px) {
                                     margin: 0;
+                                }
+                                &.heading {
+                                    text-transform: uppercase;
                                 }
                             }
                             ul {
@@ -4512,8 +4514,10 @@ body {
                             }
                             .input-group {
                                 flex-wrap: nowrap;
+                                flex-direction: column;
                                 input {
-                                    padding: 0 10px 0 10px;
+                                    padding: 7px 10px;
+                                    margin: 0 0 10px 0;
                                     font-size: 12px;
                                     width: 100%;
                                     border-radius: 0;
