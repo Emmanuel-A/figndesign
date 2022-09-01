@@ -4385,7 +4385,7 @@ body {
     
 
     .site-footer {
-        background-color: #f2f2f2;
+        background-color: #ffffff;
         padding: 0;
         margin: 0;
         position: relative;
@@ -4421,9 +4421,6 @@ body {
                         border-right: 0;
                         min-height: auto;
                         padding: 10px 15px;
-                    }
-                    &:nth-child(2) {
-                        width: 50%;
                     }
                     &.empty {
                         display: none;

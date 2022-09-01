@@ -1533,7 +1533,7 @@
         "settings": {
           "align_logo": "left",
           "logo_max_width": 170,
-          "main_linklist": "",
+          "main_linklist": "main-menu",
           "message": true,
           "home_page_only": false,
           "message_text": "Free shipping over $250",
