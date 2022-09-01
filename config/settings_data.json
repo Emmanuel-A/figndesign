@@ -978,6 +978,7 @@
           "footer-1"
         ],
         "settings": {
+          "about-info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula nunc tellus, sed finibus odio rutrum nec. Aenean tempus ligula a lectus blandit faucibus. Nullam non ligula vehicula, sagittis nulla sed, auctor arcu.",
           "show_payment_icons": true,
           "color_footer_bg": "#f6f6f6",
           "color_footer_text": "#333232",
@@ -1531,9 +1532,8 @@
         "type": "header",
         "settings": {
           "align_logo": "left",
-          "logo": "shopify:\/\/shop_images\/5e458d1c6bf0d0c9bc428c6e_FINALIZED_DOUBLE_LOGO.png",
           "logo_max_width": 170,
-          "main_linklist": "johns-main-menu",
+          "main_linklist": "",
           "message": true,
           "home_page_only": false,
           "message_text": "Free shipping over $250",
