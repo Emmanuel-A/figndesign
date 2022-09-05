@@ -4390,11 +4390,12 @@ body {
     
 
     .site-footer {
-        background-color: #ffffff;
+        background-color: #646464;
         padding: 0;
         margin: 0;
         position: relative;
         z-index: 1;
+        color: #dadada !important;
         @media screen and (max-width: 749px) {
             margin-top: 0;
             padding-bottom: 60px;
@@ -4414,7 +4415,7 @@ body {
                 }   
                 .footer_block {
                     width: 25%;
-                    min-height: 300px;
+                    // min-height: 300px;
                     padding: 20px 15px;
                     font-size: 13px;
                     // border-left: 1px solid #d4d4d459;
@@ -4442,8 +4443,13 @@ body {
                             p {
                                 margin: 0 0 20px 0;
                                 max-width: 400px;
+                                color: #cccccc;
                                 @media screen  and (max-width: 991px) {
-                                    margin: 0;
+                                    margin: 0 auto;
+                                    text-align: center;
+                                }
+                                @media screen  and (max-width: 600px) {
+                                    max-width: 100%;
                                 }
                                 &.heading {
                                     text-transform: uppercase;
@@ -4453,6 +4459,7 @@ body {
                                 @media screen and (max-width: 991px) {
                                     // display: none;
                                     margin: 10px 0 0 0;
+                                    text-align: center;
                                 }
                             }   
                             span.black_arrow {
@@ -4492,6 +4499,9 @@ body {
                     ul {
                         li {
                             margin: 0 0 6px 0;
+                            a {
+                                color: #cccccc;
+                            }
                         }
                     }
                     .site-footer__newsletter {
@@ -4530,10 +4540,12 @@ body {
                                     -moz-appearance: none;
                                     -o-appearance: none;
                                     appearance: none;
-                                    box-shadow: none !important;                                
+                                    box-shadow: none !important;   
+                                    color: #cccccc;                             
                                 }
                             }
                             .newsletter__input {
+                                color: #cccccc;
                                 margin: 0;
                                 width: 100%;
                                 outline: none;
@@ -4554,6 +4566,7 @@ body {
                             }
                             .newsletter__submit {
                                 background-color: #000000;
+                                color: #cccccc;
                                 text-transform: capitalize;
                                 letter-spacing: 0;
                                 border-radius: 0;
@@ -4600,6 +4613,7 @@ body {
                                 p {
                                     font-size: 0.7rem;
                                     text-transform: uppercase;
+                                    color: #cccccc;
                                 }
                                 ul {
                                     li {
@@ -4607,6 +4621,7 @@ body {
                                             font-size: 0.7rem;
                                             border: 0;
                                             text-decoration: none;
+                                            color: #cccccc;
                                         }
                                     }
                                 }
@@ -4637,11 +4652,13 @@ body {
         }
         .site-footer__copyright-content {
             font-size: 10px;
+            color: #cccccc;
             a {
                 text-transform: uppercase;
                 text-decoration: none;
                 outline: none;
                 border: 0;
+                color: #cccccc;
             }
         }
     }

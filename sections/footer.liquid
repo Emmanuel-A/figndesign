@@ -158,9 +158,6 @@
                   {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
                 </span>Information</p>
                 <p>{{ section.settings.about-info }}</p>
-                  <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-                    <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
-                  </div>
               </div>
             </div>
           </div>
@@ -205,11 +202,18 @@
                     <p class="message_success">Thank you for subscribing.</p>
                   {% endform %}
                 </div>
-                <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-                  <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
-                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="site-footer__content">
+          <div class="footer_block">
+            <div class="small--one-whole {{ copyright_show_class }}">
+              <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
+            </div>
+          </div>
+          <div class="footer_block">
           </div>
         </div>
       </div>
