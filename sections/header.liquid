@@ -124,17 +124,10 @@
           {% include 'icon-shopping-bag' %}
 
           {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-              <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-              </a>
-            {% else %}
-              <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
-                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
-              </a>
-            {% endif %}
+            <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+              {% include 'icon-login' %}
+              <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+            </a>
           {% endif %}
 
           {% comment %} <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">

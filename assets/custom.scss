@@ -538,11 +538,15 @@ body {
     .mega-menu {
         display: none;
         position: fixed;
+        right: 0;
         z-index: 999999;
         background-color: #ffffff;
         height: 100vh;
-        width: 100%;
+        width: 30%;
         overflow: scroll;
+        @media screen and (max-width: 991px) {
+            width: 100%;
+        }
         .header {
             display: flex;
             justify-content: space-between;
@@ -640,7 +644,6 @@ body {
             align-items: center;
             padding: 0 1.2%;
             a {
-                padding-left: 8px;
                 &.site-header__cart {
                     // margin: 0 0.6rem 0 0;
                     display: flex;
@@ -657,8 +660,11 @@ body {
                     @media screen and (max-width: 749px) {
                         display: none;
                     }
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     svg {
-                        width: 10px;
+                        width: 20px;
                     }
                 }
             }
@@ -857,13 +863,12 @@ body {
                         }       
                     }
                     button {
-                        outline: none;
-                        padding-top: 0;
-                        padding-bottom: 0;
-                        align-self: flex-end;
-                        .icon {
-                            margin: -3px 0 0 0;
-                        }
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        padding: 10px 5px;
                         .icon-close {
                             width: 12px;
                             margin: 0px 4px 0 0;
@@ -1232,6 +1237,10 @@ body {
                 }
             }
             ul.grid.grid--uniform.grid--view-items {
+                margin: 40px 0;
+                @media only screen and (max-width: 749px) {
+                    margin: 20px 0;
+                }
                 li {
                     @media only screen and (max-width: 749px) {
                         width: 100%;
