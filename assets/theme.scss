@@ -4960,10 +4960,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 }
 
-.site-header__menu {
-  display: none;
-}
-
 .site-header__icon {
   @include media-query($small) {
     display: inline-block;
