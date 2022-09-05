@@ -6539,6 +6539,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition,
 .slideshow__text-content--mobile {
   display: none;
   padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
 
   .slideshow__arrows--mobile ~ & {
     padding-top: 1.7rem;
