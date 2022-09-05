@@ -155,7 +155,7 @@
               <div class="links_wrapper">
                 <p class="heading">
                 <span class="stay_updated_arrow">
-                  {% include 'black-arrow-right' %}
+                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
                 </span>Information</p>
                 <p>{{ section.settings.about-info }}</p>
                   <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
@@ -170,7 +170,7 @@
               <div class="links_wrapper">
                 <p class="heading">
                 <span class="black_arrow">
-                  {% include 'black-arrow-right' %}
+                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
                 </span>Navigation</p>
                 <ul class="assistance">
                   <li><a href="/pages/profile">About</a></li>
@@ -188,7 +188,7 @@
               <div class="links_wrapper">
                 <p class="heading">
                 <span class="black_arrow">
-                  {% include 'black-arrow-right' %}
+                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
                 </span>Contact Us</p>
                 <div class="site-footer__newsletter {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
                   {% form 'customer' %}
