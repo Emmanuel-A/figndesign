@@ -48,7 +48,6 @@ body {
         z-index: 2003298890;
     }
     .locale-bar__container {
-        background-color: #f2f2f2 !important;
         display: flex;
         position: fixed;
         top: 40px;
@@ -101,7 +100,6 @@ body {
                     }
                     .locale-bar__button {
                         background-color: #1822e6 !important;
-                        // background-color: #f2f2f2 !important;
                         color: #ffffff !important;
                         text-transform: uppercase;
                         font-size: 11px !important;
@@ -543,7 +541,7 @@ body {
         background-color: #ffffff;
         height: 100vh;
         width: 30%;
-        overflow: scroll;
+        overflow: hidden;
         @media screen and (max-width: 991px) {
             width: 100%;
         }
@@ -551,6 +549,8 @@ body {
             display: flex;
             justify-content: space-between;
             flex-direction: row;
+            height: 40px;
+            z-index: 10001;
             .logo-container {
                 width: 80px;
                 margin: 10px 0 0 10px;
@@ -597,6 +597,14 @@ body {
             text-transform: uppercase;
             padding: 0 10px;
             overflow: scroll;
+            height: 90vh;
+            top: 40px;
+            position: absolute;
+            z-index: 10001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             p {
                 &.heading {
                     margin: 20px 0 0 0;
@@ -604,8 +612,14 @@ body {
                 }
             }
             ul {
-                margin: 0 0 30px 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
                 li {
+                    margin: 10px 0;
                     a {
                         font-size: 20px;
                         font-weight: 600;
@@ -875,7 +889,7 @@ body {
                         }
                         @media screen and (max-width: 749px) {
                             top: 10px;
-                            padding-left: 0;
+                            padding: 0;
                             position: absolute;
                         }
                     }
@@ -1893,21 +1907,21 @@ body {
         .announcement-bar {
             display: none;
         }
-        .site-header {
-            top: 0 !important;
-            box-shadow: none;
-            background-color: #ffffff !important;
-            padding: 0;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            box-shadow: -1px 5px 13px -11px #a9a9a9;
-            -o-box-shadow: -1px 5px 13px -11px #a9a9a9;
-            -webkit-box-shadow: -1px 5px 13px -11px #a9a9a9;
-            -moz-box-shadow: -1px 5px 13px -11px #a9a9a9;
-        }
+        // .site-header {
+        //     top: 0 !important;
+        //     box-shadow: none;
+        //     background-color: #ffffff !important;
+        //     padding: 0;
+        //     height: 40px;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     align-content: center;
+        //     box-shadow: -1px 5px 13px -11px #a9a9a9;
+        //     -o-box-shadow: -1px 5px 13px -11px #a9a9a9;
+        //     -webkit-box-shadow: -1px 5px 13px -11px #a9a9a9;
+        //     -moz-box-shadow: -1px 5px 13px -11px #a9a9a9;
+        // }
         .page-container {
             -ms-transform: none !important;
             -webkit-transform: none !important; 
@@ -5023,7 +5037,6 @@ body {
     }
 
     &.template-customers-register {
-        background-color: #f2f2f2;
         .main-content {
             margin: 0 !important;
             .page-width {
@@ -5157,7 +5170,6 @@ body {
 
     &.challenge {
         height: 100vh;
-        background-color: #f2f2f2;
         main {
             display: flex;
             justify-content: center;
@@ -5232,7 +5244,6 @@ body {
     }
 
     &.recover {
-        background-color: #f2f2f2;
         .main-content {
             margin: 0!important;
             height: 95vh;
@@ -5487,7 +5498,6 @@ body {
                     width: 100%;
                     position: relative;
                     height: auto;
-                    background-color: #f2f2f2;
                     border-bottom: 2px solid #d4d4d459;
                     padding: 10px 0 30px 0;
                     h4 {
@@ -5907,7 +5917,6 @@ body {
                 width: 25%;
                 max-height: 90%;
                 overflow-y: scroll;
-                background-color: #f2f2f2;
                 @media screen and (max-width: 900px) {
                     left: 0;
                     width: 100%;
@@ -6189,7 +6198,6 @@ body {
         }
     }
     &.template-customers-account {
-        background-color: #f2f2f2;
         .page-container {
             transition: none;
             transform: none;
@@ -6281,7 +6289,6 @@ body {
         }
     }
     &.template-customers-addresses {
-        background-color: #f2f2f2;
         .page-container {
             transition: none;
             transform: none;
@@ -6535,7 +6542,6 @@ body {
         }
     }
     &.orders {
-        background-color: #f2f2f2;
         .page-container {
             transition: none;
             transform: none;
@@ -6691,7 +6697,6 @@ body {
         }
     }
     &.template-customers-order {
-        background-color: #f2f2f2;
         .page-container {
             transition: none;
             transform: none;
