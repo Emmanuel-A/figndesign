@@ -56,7 +56,7 @@
       "settings": {
         "title": "",
         "collection": "frontpage",
-        "grid": 3,
+        "grid": 4,
         "rows": 1,
         "show_vendor": false,
         "show_view_all": false
