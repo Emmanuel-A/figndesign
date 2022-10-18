@@ -57,7 +57,7 @@
         "title": "",
         "collection": "frontpage",
         "grid": 4,
-        "rows": 1,
+        "rows": 2,
         "show_vendor": false,
         "show_view_all": false
       }
