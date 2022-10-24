@@ -18,50 +18,53 @@
   {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size ==  'adapt' -%}
     {%- assign slide_width = 1090 -%}
     {%- assign min_aspect_ratio = section.settings.image.aspect_ratio | default: 2.0 -%}
-    <div class="hero-fixed-width hero--adapt"
-         id="Hero-{{ section.id }}"
-         data-layout="{{ section.settings.hero_layout }}">
+    <div class="hero-fixed-width hero--adapt" 
+      id="Hero-{{ section.id }}" 
+      data-layout="{{ section.settings.hero_layout }}">
       {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
       {%- if section.settings.image.width < max_width -%}
         {%- assign slide_width = section.settings.image.width -%}
       {%- endif -%}
-      <div class="hero-fixed-width__content">
-        <div class="page-width text-center">
-          {%- if section.settings.title != blank -%}
-            <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
-          {%- endif -%}
-          {%- if section.settings.text != blank -%}
-            <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
-          {%- endif -%}
-          {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-            <a href="{{ section.settings.button_link }}" class="btn hero__btn">
-              {{ section.settings.button_label | escape }}
-            </a>
-          {%- endif -%}
+
+      {%- if img_url != blank -%}
+        <div class="hero-fixed-width__content">
+          <div class="page-width text-center">
+            {%- if section.settings.title != blank -%}
+              <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.text != blank -%}
+              <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+            {%- endif -%}
+            {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+              <a href="{{ section.settings.button_link }}" class="btn hero__btn">
+                {{ section.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
         </div>
-      </div>
-      {%- if section.settings.image != blank -%}
-        <img class="hero-fixed-width__image lazyload lazypreload"
-             src="{{ section.settings.image | img_url: '300x300' }}"
-             data-src="{{ img_url }}"
-             data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
-             data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-             data-sizes="auto"
-             style="{%- if slide_width <= max_width -%}
-                      {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
-                      min-width: {{ min_width }}%;
-                    {%- endif -%}
-                    object-position: {{ section.settings.alignment }};"
-             alt="{{ section.settings.image.alt | escape }}">
-      {%- else -%}
-        <span>
-          {% capture current %}{% cycle 1, 2 %}{% endcapture %}
-          {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-        </span>
+        {%- if section.settings.image != blank -%}
+          <img class="hero-fixed-width__image lazyload lazypreload"
+              src="{{ section.settings.image | img_url: '300x300' }}"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+              data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+              data-sizes="auto"
+              style="{%- if slide_width <= max_width -%}
+                        {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
+                        min-width: {{ min_width }}%;
+                      {%- endif -%}
+                      object-position: {{ section.settings.alignment }};"
+              alt="{{ section.settings.image.alt | escape }}">
+        {%- else -%}
+          <span>
+            {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+            {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </span>
+        {%- endif -%}
+        <noscript>
+          <div class="hero-fixed-width__image"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+        </noscript>
       {%- endif -%}
-      <noscript>
-        <div class="hero-fixed-width__image"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
-      </noscript>
     </div>
   {%- else -%}
     <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
@@ -77,9 +80,16 @@
          data-bgset="{% include 'bgset', image: section.settings.image %}"
          data-sizes="auto"
          data-parent-fit="cover"
-         style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }});"
+         style="{%- if section.settings.image != blank -%} background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }}); {%- endif -%}"
          {%- endif -%}>
-    {%- if section.settings.image == blank -%}
+      {%- if section.settings.videoUrl != blank -%}
+      <div class="hero-fixed-width__video">
+        <video width="100%" height="100%" preload playsinline autoplay muted loop>
+          <source src="{{ section.settings.videoUrl }}" type="video/mp4">
+        </video>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.image == blank and section.settings.videoUrl == blank  -%}
       <div class="placeholder-background">
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
       </div>
@@ -712,6 +722,34 @@
         "zh-CN": "按钮链接",
         "zh-TW": "按鈕連結"
       }
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Video",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      }
+    },
+    {
+      "type": "text",
+      "id": "videoUrl",
+      "label": "Video Link"
     }
   ],
   "presets": [

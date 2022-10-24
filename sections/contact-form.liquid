@@ -83,6 +83,10 @@
         </textarea>
         <label class="form__label field__label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
       </div>
+      <div class="field">
+        <input type="checkbox" id="ContactForm-disclaimer" class="field__input" autocomplete="tel" name="contact[disclaimer]" required>
+        <label class="field__label" for="ContactForm-disclaimer">Disclaimer — A custom order request doesnt mean your request has been accepted.</label>
+      </div>
       <div class="contact__button">
         <button type="submit" class="button">
           {{ 'templates.contact.form.send' | t }}

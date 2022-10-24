@@ -2603,7 +2603,9 @@ theme.MobileNav = (function() {
   }
 
   function openMobileNav() {
-    $('.mega-menu').show();    
+    $('.mega-menu').addClass('show-menu');    
+
+    $('.nav-open.overlay').show();    
 
     var translateHeaderHeight = cache.$siteHeader.outerHeight();
 
@@ -2635,10 +2637,17 @@ theme.MobileNav = (function() {
         closeMobileNav();
       }
     });
+
+    $(window).on('click', function(evt) {
+      if (evt.target.classList.contains('overlay')) {
+        $('.nav-open.overlay').hide();    
+        closeMobileNav();
+      }
+    });
   }
 
   function closeMobileNav() {
-    $('.mega-menu').hide(); 
+    $('.mega-menu').removeClass('show-menu'); 
 
     cache.$mobileNavContainer.prepareTransition().removeClass(classes.navOpen);
 
@@ -8215,6 +8224,14 @@ function setCookie(c_name, value, exdays) {
 }
 
 window.onload=function () {
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 120) {
+      $( ".site-header" ).css('background-color: #ffffff');
+    } else {
+      $( ".site-header" ).css('background-color: transparent');
+    }
+  });
 
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

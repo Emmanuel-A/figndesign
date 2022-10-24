@@ -14,7 +14,20 @@
     </div>
   </div>
   <div class="menu-container">
+    <div class="logo-container">
+      <a href="/" class="logo">
+        {% include 'fign-logo-black' %}
+      </a>
+    </div>
     {% include 'site-nav', linklist: section.settings.main_linklist %}
+    <div class="footer">
+      <ul class="icons-wrapper">
+        <li><a href="">{% include 'instagram' %}</a></li>
+        <li><a href="">{% include 'tiktok' %}</a></li>
+        <li><a href="">{% include 'twitter' %}</a></li>
+        <li><a href="">{% include 'youtube' %}</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -40,7 +53,7 @@
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   {% if section.settings.message %}
     {% if section.settings.home_page_only == false or request.page_type == 'index' %}
-      <style>
+      {% comment %} <style>
         .announcement-bar {
           background-color: {{ section.settings.color_bg }};
         }
@@ -62,7 +75,7 @@
         }
       </style>
 
-      {% comment %} {% if section.settings.message_link == blank %}
+      {% if section.settings.message_link == blank %}
         <div class="announcement-bar">
       {% else %}
         <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
@@ -76,14 +89,14 @@
         <p class="announcement-bar__message">Free shipping</p>
       {% else %}
         <p class="announcement-bar__message">You are <span class="cart-subtotal" id="cart-subtotal-header">${{ remainderTotal }}</span> away from <span class="free-shipping">free shipping</p>
-      {% endif %} {% endcomment %}
+      {% endif %}
 
       <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
           let subtotal = {{ remainderTotal }};
           document.getElementById('cart-subtotal-header').innerHTML = '$'+subtotal.toFixed(2);
         });
-      </script>
+      </script> {% endcomment %}
 
       {% if section.settings.message_link == blank %}
         </div>
@@ -119,9 +132,24 @@
         {%- assign logo_classes = 'medium-up--one-quarter logo-align--left' -%}
       {% endif %}
 
+      <div class="top-nav-wrapper">
+        <a href="" class="first-level-link">Products</a>
+        <span class="header-divider">
+          {% include 'header-divider' %}
+        </span>
+        <a href="" class="first-level-link">Collections</a>
+      </div>
+
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
-          {% include 'icon-shopping-bag' %}
+          <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
+            {% include 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+          </button>
+          
+          <a href="/cart">
+            {% include 'icon-shopping-bag' %}
+          </a>  
 
           {% if shop.customer_accounts_enabled %}
             <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
@@ -129,11 +157,6 @@
               <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
             </a>
           {% endif %}
-
-          {% comment %} <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
-            {% include 'icon-search' %}
-            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
-          </button> {% endcomment %}
 
           {% comment %} {%- if settings.enable_ajax -%}
             {% include 'cart-popup' %}

@@ -1,5 +1,9 @@
 <div class="preloader"></div>
 
-{{ page.title }}
-{{ page.content }}
+{% section 'hero'%}
 
+<div class="content">
+    {{ page.title }}
+    {{ page.content }}
+    {% section 'image-bar' %}
+</div>

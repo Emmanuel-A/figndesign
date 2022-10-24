@@ -1,63 +1,59 @@
-<div class="grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }}">
-  {% case section.blocks.size %}
-    {% when 1 %}
-      {%- assign column_size = '' -%}
-    {% when 2 %}
-      {%- assign column_size = 'medium-up--one-half' -%}
-    {% when 3 %}
-      {%- assign column_size = 'medium-up--one-third' -%}
-    {% else %}
-      {%- assign column_size = 'medium-up--one-quarter' -%}
-  {% endcase %}
+{% for block in section.blocks %}
+  {% if section.blocks.size != 0 %}
+    <div class="grid grid--no-gutters image-bar image-bar--{{ section.settings.section_height }}">
+      {% case section.blocks.size %}
+        {% when 1 %}
+          {%- assign column_size = '' -%}
+        {% when 2 %}
+          {%- assign column_size = 'medium-up--one-half' -%}
+        {% when 3 %}
+          {%- assign column_size = 'medium-up--one-third' -%}
+        {% else %}
+          {%- assign column_size = 'medium-up--one-quarter' -%}
+      {% endcase %}
 
-  {% for block in section.blocks %}
-    <div class="grid__item {{ column_size }} js" {{ block.shopify_attributes }}>
-      {% if block.settings.link != blank %}
-        <a class="image-bar__link" href="{{ block.settings.link }}">
-          <div class="image-bar__item box ratio-container lazyload"
-               data-bgset="{% include 'bgset', image: block.settings.image %}"
-               data-sizes="auto"
-               data-parent-fit="cover"
-               style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
-      {% elsif block.settings.image != blank %}
-        <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload"
-             data-bgset="{% include 'bgset', image: block.settings.image %}"
-             data-sizes="auto"
-             data-parent-fit="cover"
-             style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
-      {% else %}
-        <div class="image-bar__item">
-      {% endif %}
-      <div class="image-bar__content{% if block.settings.cta_label != blank or block.settings.link != blank %} image-bar__overlay{% endif %}">
-        {% if block.settings.image == blank %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      <div class="grid__item {{ column_size }} js" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank %}
+          <a class="image-bar__link" href="{{ block.settings.link }}">
+            <div class="image-bar__item box ratio-container lazyload"
+                data-bgset="{% include 'bgset', image: block.settings.image %}"
+                data-sizes="auto"
+                data-parent-fit="cover"
+                style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+        {% elsif block.settings.image != blank %}
+          <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload"
+              data-bgset="{% include 'bgset', image: block.settings.image %}"
+              data-sizes="auto"
+              data-parent-fit="cover"
+              style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+        {% else %}
+          <div class="image-bar__item">
         {% endif %}
+        <div class="image-bar__content{% if block.settings.cta_label != blank or block.settings.link != blank %} image-bar__overlay{% endif %}">
+          {% if block.settings.image == blank %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
 
-        {% if block.settings.cta_label != blank %}
-          <div class="image-bar__text">
-            <h3 class="image-bar__caption">{{ block.settings.cta_label | escape }}</h3>
+          {% if block.settings.cta_label != blank %}
+            <div class="image-bar__text">
+              <h3 class="image-bar__caption">{{ block.settings.cta_label | escape }}</h3>
+            </div>
+          {% endif %}
+        </div>
+        {% if block.settings.link != blank %}
+          </div></a>
+        {% else %}
           </div>
         {% endif %}
       </div>
-      {% if block.settings.link != blank %}
-        </div></a>
-      {% else %}
+      <noscript>
+        <div class="grid__item {{ column_size }}" {{ block.shopify_attributes }}>
+          <div class="image-bar__item image-bar__item--{{ block.id }}" style="background-image: url({{ block.settings.image | img_url: '2048x' }});"></div>
         </div>
-      {% endif %}
+      </noscript>
     </div>
-    <noscript>
-      <div class="grid__item {{ column_size }}" {{ block.shopify_attributes }}>
-        <div class="image-bar__item image-bar__item--{{ block.id }}" style="background-image: url({{ block.settings.image | img_url: '2048x' }});"></div>
-      </div>
-    </noscript>
-  {% endfor %}
-</div>
-
-{% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
-{% endif %}
-
-
+  {% endif %}
+{% endfor %}
 
 {% schema %}
 {

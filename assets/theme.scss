@@ -2638,7 +2638,7 @@ textarea {
 }
 
 .site-nav__label {
-  border-bottom: 1px solid transparent;
+  border-bottom: 3px solid transparent;
 
   .site-nav__link--active & {
     border-bottom-color: $color-text;
@@ -8830,10 +8830,6 @@ div#shopify-section-feature-row {
   
   .slick-hidden { 
   display: none !important; 
-  }
-  
-  .slick-track {
-  margin-top: 10px;
   }
   
   .thumbnails-slider--active {
