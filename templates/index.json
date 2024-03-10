@@ -50,11 +50,23 @@
         "button_label": "",
         "button_link": ""
       }
+    },
+    "16624058086988b27e": {
+      "type": "collection",
+      "settings": {
+        "title": "",
+        "collection": "frontpage",
+        "grid": 4,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": false
+      }
     }
   },
   "order": [
     "rich_text",
     "166178467809be3053",
-    "1661729597237c47c6"
+    "1661729597237c47c6",
+    "16624058086988b27e"
   ]
 }
