@@ -174,7 +174,6 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
         predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
       }
     }
-
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   </script>
 
@@ -207,7 +206,6 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
   {% section 'header' %}
 
   <div class="page-container drawer-page-content" id="PageContainer">
-
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
@@ -217,7 +215,6 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
       {{- 'sections.slideshow.navigation_instructions' | t -}}
     </div>
-
   </div>
 
   <ul hidden>
@@ -225,38 +222,5 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
 
-
-
-  {% comment %} <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script> {% endcomment %}
 {% include 'mlveda-currencies-switcher' %}{% include 'mlveda-currencies' %}{% include 'mlveda-flag' %}{% include 'mlveda-currencies-style' %}</body>
 </html>
-
-
-  
- {% comment %} <script>
-  jQuery.getJSON('http://freegeoip.net/json/';, function(location) {
-    // If the visitor is browsing from Asia
-    if (location.cotinent_name == 'Asia') {
-      $("#currencies").val("USD");
-      $("#currencies").change();
-    }
-
-    // If the visitor is browsing from Europe
-    if (location.cotinent_name == 'Europe') {
-      $("#currencies").val("EUR");
-      $("#currencies").change();
-    }
-      
-    // If the visitor is browsing from GB
-    if (location.country_code == 'GB') {
-      $("#currencies").val("GBP");
-      $("#currencies").change();
-    }
-      
-    // If the visitor is browsing from USA
-    if (location.country_code == 'US') {
-      $("#currencies").val("USD");
-      $("#currencies").change();
-    } 
-  });
-</script> {% endcomment %}

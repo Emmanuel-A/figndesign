@@ -19,13 +19,13 @@
                 data-bgset="{% include 'bgset', image: block.settings.image %}"
                 data-sizes="auto"
                 data-parent-fit="cover"
-                style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+                style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }}');">
         {% elsif block.settings.image != blank %}
           <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload"
               data-bgset="{% include 'bgset', image: block.settings.image %}"
               data-sizes="auto"
               data-parent-fit="cover"
-              style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+              style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }}');">
         {% else %}
           <div class="image-bar__item">
         {% endif %}
