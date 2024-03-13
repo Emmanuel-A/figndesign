@@ -6,7 +6,7 @@
     padding: 20px;
 }
 
-.index .product-grid .grid__item .card__content {
+.index .product-grid .grid__item .card__information {
     display: none;
 }
 

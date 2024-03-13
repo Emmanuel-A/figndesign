@@ -168,15 +168,23 @@
       {%- endif -%}
     {%- endif -%}
 
-    {%- liquid
+    {% comment %} {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
+          render 'ea-header-dropdown-menu'
         elsif section.settings.menu_type_desktop != 'drawer'
           render 'header-mega-menu'
         endif
       endif
-    %}
+    %} {% endcomment %}
+
+    <div class="top-nav-wrapper">
+      <a href="" class="first-level-link">Products</a>
+      <span class="header-divider">
+        {% include 'header-divider' %}
+      </span>
+      <a href="" class="first-level-link">Collections</a>
+    </div>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}

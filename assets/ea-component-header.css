@@ -13,3 +13,39 @@
     width: 200px;
     height: 100px;
 }
+
+.header .top-nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+}
+
+.header .top-nav-wrapper .first-level-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 749px) {
+    .header .top-nav-wrapper {
+        column-gap: 1.3rem;
+    }
+
+    .header .top-nav-wrapper .first-level-link {
+        font-size: 14px;
+    }
+}
+
+.header .top-nav-wrapper .first-level-link:hover {
+    text-decoration: underline;
+}
+
+
+.header .top-nav-wrapper .header-divider svg {
+    width: 15px;
+}

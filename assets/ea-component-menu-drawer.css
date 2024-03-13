@@ -204,7 +204,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__utility-links {
   padding: 0;
-  background-color: rgba(var(--color-foreground), 0.03);
+  background-color: transparent;
   position: relative;
 }
 
@@ -249,8 +249,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer .list-social {
-  justify-content: flex-start;
-  margin-left: -1.25rem
+  justify-content: center;
 }
 
 .menu-drawer .list-social:empty {

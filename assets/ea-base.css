@@ -2386,7 +2386,7 @@
   
   .header {
     display: grid;
-    grid-template-areas: 'left-icons heading icons';
+    grid-template-areas: 'heading left-icons icons';
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
   }
@@ -2465,7 +2465,7 @@
   .header__heading,
   .header__heading-link {
     grid-area: heading;
-    justify-self: center;
+    justify-self: flex-start;
   }
   
   .header__heading-link {

@@ -44,6 +44,43 @@
     %}
 
     {% style %}
+      @font-face {
+          font-family: 'eurostarregular';
+          src: url(' {{ "eurostarregular.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "eurostarregular.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'eurostileblack';
+          src: url(' {{ "eurostileblack.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "eurostileblack.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'eurotechnic';
+          src: url(' {{ "eurotechnic.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "eurotechnic.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'futurabook';
+          src: url(' {{ "futurabook.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "futurabook.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'futuralight';
+          src: url(' {{ "futuralight.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "futuralight.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'futuramedium';
+          src: url(' {{ "futuramedium.ttf" | asset_url }} ') format('truetype'),
+              url(' {{ "futuramedium.ttf" | asset_url }}?#iefix ') format('truetype');
+          font-style: normal;
+      }
+
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
