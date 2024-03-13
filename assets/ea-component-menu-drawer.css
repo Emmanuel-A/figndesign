@@ -115,6 +115,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__menu-item {
   padding: 1.1rem 3rem;
   text-decoration: none;
+  font-family: 'Futura Medium', sans-serif !important;
   font-size: 1.8rem;
 }
 

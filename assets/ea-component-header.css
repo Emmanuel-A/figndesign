@@ -10,8 +10,8 @@
 }
 
 .menu-drawer__navigation-container .logo svg {
-    width: 200px;
-    height: 100px;
+    width: 130px;
+    height: 70px;
 }
 
 .header .top-nav-wrapper {
@@ -48,4 +48,5 @@
 
 .header .top-nav-wrapper .header-divider svg {
     width: 15px;
+    height: 60px;
 }

@@ -1,3 +1,39 @@
+/*********************************/
+
+@font-face {
+    font-family: 'Futura Light';
+    src: url('./FuturaBT-Light.woff') format('woff'),
+         url('./FuturaBT-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura Book';
+    src: url('./FuturaBT-Book.woff') format('woff'),
+         url('./FuturaBT-Book.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura Medium';
+    src: url('./FuturaBT-Medium.woff') format('woff'),
+         url('./FuturaBT-Medium.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Futura Medium', sans-serif;
+}
+
+p  {
+    font-family: 'Futura Light', sans-serif;
+}
+
 :root {
     --alpha-button-background: 1;
     --alpha-button-border: 1;
@@ -1801,6 +1837,7 @@
   .field__button > svg {
     height: 2.5rem;
     width: 2.5rem;
+    color: #000000;
   }
   
   .field__input:-webkit-autofill ~ .field__button,
@@ -2073,6 +2110,7 @@
     height: 4.4rem;
     width: 4.4rem;
     background-color: transparent;
+    color: #000000;
   }
   
   .modal__close-button .icon {
@@ -2378,6 +2416,7 @@
     position: relative;
     background-color: #ffffffbf !important;
     border-bottom: 1px solid #d4d4d459;
+    height: 65px;
   }
   
   .header-wrapper--border-bottom {
@@ -2593,7 +2632,7 @@
   .header__icon,
   .header__icon--cart .icon {
     height: 4.4rem;
-    width: 4.4rem;
+    width: 3.4rem;
     padding: 0;
   }
   
