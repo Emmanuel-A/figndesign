@@ -3,7 +3,7 @@
   "type": "footer",
   "sections": {
     "footer": {
-      "type": "footer",
+      "type": "ea-footer",
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,

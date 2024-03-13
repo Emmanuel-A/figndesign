@@ -1,0 +1,15 @@
+.header__icon--menu .icon svg path {
+    fill: #000000;
+}
+
+.menu-drawer__navigation-container .logo {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    height: 100px;
+}
+
+.menu-drawer__navigation-container .logo svg {
+    width: 200px;
+    height: 100px;
+}

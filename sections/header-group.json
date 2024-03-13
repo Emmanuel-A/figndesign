@@ -27,7 +27,7 @@
       }
     },
     "header": {
-      "type": "header",
+      "type": "ea-header",
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
