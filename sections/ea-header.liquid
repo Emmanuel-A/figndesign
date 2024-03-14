@@ -179,11 +179,17 @@
     %} {% endcomment %}
 
     <div class="top-nav-wrapper">
-      <a href="" class="first-level-link">Products</a>
+      <a href="" class="first-level-link">
+        Products
+        <span class="second-level-link submenu megamenu"></span>
+      </a>
       <span class="header-divider">
         {% include 'header-divider' %}
       </span>
-      <a href="" class="first-level-link">Collections</a>
+      <a href="" class="first-level-link">
+        Collections
+        <span class="second-level-link submenu megamenu"></span> 
+      </a>
     </div>
 
     {%- if section.settings.logo_position == 'middle-center' -%}

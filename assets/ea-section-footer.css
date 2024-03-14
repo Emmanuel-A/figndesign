@@ -67,6 +67,8 @@
     margin: 0 0 20px 0;
     max-width: 400px;
     color: #ccc;
+    line-height: 2rem;
+    letter-spacing: 0.01rem;
 }
 @media screen and (max-width: 991px) {
     .site-footer .page-width .site-footer__content .footer_block .footer_links .links_wrapper p {
@@ -132,6 +134,7 @@
 }
 
 .site-footer .page-width .site-footer__content .footer_block ul li a {
+    font-family: 'Futura Light', sans-serif !important;
     color: #ccc;
     text-decoration: none;
 }
@@ -167,6 +170,7 @@
 .site-footer .page-width .site-footer__content .footer_block .site-footer__newsletter form .input-group input {
     padding: 7px 10px;
     margin: 0 0 10px 0;
+    font-family: 'Futura Light', sans-serif !important;
     font-size: 12px;
     width: 100%;
     border: 1px solid #cccccc;
@@ -216,6 +220,7 @@
     min-height: 22px;
     height: 30px !important;
     padding: 0 10px;
+    font-family: 'Futura Light', sans-serif !important;
     font-size: 12px;
 }
 .site-footer .page-width .site-footer__content .footer_block .site-footer__newsletter form p {
@@ -292,6 +297,7 @@
    }
 }
 .site-footer .site-footer__copyright-content {
+    font-family: 'Futura Light', sans-serif !important;
     font-size: 10px;
     color: #ccc;
 }
@@ -301,4 +307,8 @@
     outline: none;
     border: 0;
     color: #ccc;
+    font-family: 'Futura Light', sans-serif !important;
+}
+.site-footer .site-footer__copyright-content a:hover {
+    color: currentColor;
 }
