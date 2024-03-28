@@ -1935,7 +1935,7 @@ p  {
   .quantity {
     color: rgba(var(--color-foreground));
     position: relative;
-    width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+    width: 100%;
     display: flex;
     border-radius: var(--inputs-radius);
     min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);

@@ -3,7 +3,7 @@
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
 >
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {{ 'ea-section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -66,7 +66,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="page-width-full">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -628,7 +628,7 @@
                       </div>
                     </aside>
                   {%- endif -%}
-                  {{ 'ea-component-card.css' | asset_url | stylesheet_tag }}
+                  {{ 'ea-ea-component-card.css' | asset_url | stylesheet_tag }}
                   {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
                   {%- if block.settings.enable_quick_add -%}
                     {{ 'ea-quick-add.css' | asset_url | stylesheet_tag }}

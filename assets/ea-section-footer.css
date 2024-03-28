@@ -9,8 +9,8 @@
 @media screen and (max-width: 749px) {
     .site-footer {
         margin-top: 0;
-        padding-bottom: 0;
-        padding-top: 0;
+        padding-bottom: 1rem;
+        padding-top: 2rem;
    }
 }
 .site-footer .page-width {
@@ -47,6 +47,8 @@
    .site-footer .page-width .site-footer__content .footer_block:nth-child(3) {
         border-top: 1px solid #d4d4d459;
         border-bottom: 1px solid #d4d4d459;
+        margin: 15px 0;
+        padding: 20px 0;
    }
 }
 .site-footer .page-width .site-footer__content .footer_block:nth-child(2) {
@@ -65,7 +67,7 @@
 }
 .site-footer .page-width .site-footer__content .footer_block .footer_links .links_wrapper p {
     margin: 0 0 20px 0;
-    max-width: 400px;
+    max-width: 450px;
     color: #ccc;
     line-height: 2rem;
     letter-spacing: 0.01rem;

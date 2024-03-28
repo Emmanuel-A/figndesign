@@ -179,17 +179,22 @@
     %} {% endcomment %}
 
     <div class="top-nav-wrapper">
-      <a href="" class="first-level-link">
+      <span class="first-level-link">
         Products
-        <span class="second-level-link submenu megamenu"></span>
-      </a>
+        <span class="second-level-link submenu megamenu">
+          
+        </span>
+        <span class="mega-menu"></span>
+      </span>
       <span class="header-divider">
         {% include 'header-divider' %}
       </span>
-      <a href="" class="first-level-link">
+      <span class="first-level-link">
         Collections
-        <span class="second-level-link submenu megamenu"></span> 
-      </a>
+        <span class="second-level-link submenu megamenu">
+          
+        </span> 
+      </span>
     </div>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
