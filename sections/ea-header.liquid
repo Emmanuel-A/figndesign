@@ -104,6 +104,7 @@
   }
 {%- endstyle -%}
 
+<script src="{{ 'ea-header.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -178,11 +179,46 @@
       endif
     %} {% endcomment %}
 
-    <div class="top-nav-wrapper">
+    <top-nav-wrapper class="top-nav-wrapper">
       <span class="first-level-link">
-        Products
+        <span class="link">Products<span class="icon-caret">{% render 'icon-caret' %}</span></span> 
         <span class="second-level-link submenu megamenu">
-          
+          <span class="menu-wrapper seating">
+            <p class="menu-title">Seating</p>
+            <ul class="links-wrapper">
+              <li><a href="">All seating</a></li>
+              <li><a href="">Dining Chairs</a></li>
+              <li><a href="">Lounge Chairs</a></li>
+              <li><a href="">Meeting Chairs</a></li>
+              <li><a href="">Ottomans & Poufs</a></li>
+              <li><a href="">Sofas</a></li>
+              <li><a href="">Stools & Bar Chairs</a></li>
+            </ul>
+          </span>
+
+          <span class="menu-wrapper illumination">
+            <p class="menu-title">Illumination & Objects</p>
+            <ul class="links-wrapper">
+              <li><a href="">All objects</a></li>
+              <li><a href="">Bookcases & Shelves</a></li>
+              <li><a href="">Floor Lamps</a></li>
+              <li><a href="">Mirrors</a></li>
+              <li><a href="">Rugs</a></li>
+              <li><a href="">Stereo Consoles</a></li>
+              <li><a href="">Wall Lamps</a></li>
+            </ul>
+          </span>
+
+          <span class="menu-wrapper illumination">
+            <p class="menu-title">Tables</p>
+            <ul class="links-wrapper">
+              <li><a href="">All tables</a></li>
+              <li><a href="">Coffee Tables</a></li>
+              <li><a href="">Consoles</a></li>
+              <li><a href="">Dining Tables</a></li>
+              <li><a href="">Lounge Tables</a></li>
+            </ul>
+          </span>
         </span>
         <span class="mega-menu"></span>
       </span>
@@ -190,12 +226,13 @@
         {% include 'header-divider' %}
       </span>
       <span class="first-level-link">
-        Collections
+        <span class="link">Collections<span class="icon-caret">{% render 'icon-caret' %}</span></span> 
         <span class="second-level-link submenu megamenu">
           
-        </span> 
+        </span>
+        <span class="mega-menu"></span>
       </span>
-    </div>
+    </top-nav-wrapper>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}

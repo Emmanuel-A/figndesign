@@ -2014,6 +2014,7 @@ p  {
   .quantity__button svg {
     width: 1rem;
     pointer-events: none;
+    color: #000000;
   }
   
   .quantity__button:focus-visible,
@@ -2049,6 +2050,8 @@ p  {
   
   .quantity__input[type='number'] {
     -moz-appearance: textfield;
+    border-left: 1px solid rgb(var(--color-foreground));
+    border-right: 1px solid rgb(var(--color-foreground));
   }
   
   .quantity__rules {
@@ -2534,7 +2537,15 @@ p  {
   
   .header__heading-logo {
     height: auto;
+    width: 55px;
     max-width: 100%;
+    margin-top: -5px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header__heading-logo {
+      margin-top: 5px;
+    }
   }
   
   .header__heading-logo-wrapper {
