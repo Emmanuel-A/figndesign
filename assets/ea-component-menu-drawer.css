@@ -139,7 +139,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   right: 3rem;
 }
 
-.menu-drawer__menu-item--active,
+
 .menu-drawer__menu-item:focus,
 .menu-drawer__close-button:focus,
 .menu-drawer__menu-item:hover,
@@ -148,8 +148,14 @@ details[open].menu-opening > .menu-drawer__submenu {
   background-color: rgba(var(--color-foreground), 0.04);
 }
 
+.menu-drawer__menu-item--active {
+  background-color: #dddddd;
+  color: #000000;
+}
+
 .menu-drawer__menu-item--active:hover {
-  background-color: rgba(var(--color-foreground), 0.08);
+  background-color: #dddddd;
+  color: #000000;
 }
 
 .js .menu-drawer__menu-item .icon-caret,

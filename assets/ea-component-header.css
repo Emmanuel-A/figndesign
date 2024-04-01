@@ -36,7 +36,9 @@
     align-items: center;
     justify-content: center;
     column-gap: 10px;
+    font-family: 'Futura Light', sans-serif;
     font-size: 20px;
+    letter-spacing: 0;
     text-decoration: none;
 }
 
@@ -63,6 +65,7 @@
     top: 65px;
     z-index: 1;
     background-color: #ffffff;
+    box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius) rgba(var(--color-shadow), var(--popup-shadow-opacity));
     padding: 0 0 25px 0;
 }
 

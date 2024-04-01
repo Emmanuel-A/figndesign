@@ -171,12 +171,13 @@
                   {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
                 </span>Navigation</p>
                 <ul class="assistance">
-                  <li><a href="/pages/profile">About</a></li>
-                  <li><a href="/pages/contact">Contact</a></li>
-                  <li><a href="/policies/shipping-policy">Shipping and Returns</a></li>
-                  <li><a href="/pages/shipping-and-returns">Terms and Conditions</a></li>
-                  <li><a href="/account">Account</a></li>
+                  {% for link in linklists.footer-navigation.links %}
+                    <!-- menu content -->
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %} 
+                  
                 </ul>
+                    
               </div>
             </div>
           </div>
