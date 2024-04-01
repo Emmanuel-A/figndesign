@@ -414,6 +414,7 @@ blockquote {
 .field__input,
 .form__label,
 .select__select {
+  font-family: 'Futura Light', sans-serif;
   font-size: 1.3rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   letter-spacing: 0.04rem;
@@ -1729,6 +1730,8 @@ details[open] > .share-button__fallback {
 .field__input,
 .customer .field input {
   flex-grow: 1;
+  font-family: 'Futura Light', sans-serif;
+  letter-spacing: 0;
   text-align: left;
   padding: 1.5rem;
   margin: var(--inputs-border-width);

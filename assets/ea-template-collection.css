@@ -7,7 +7,7 @@
 }
 
 .index .product-grid .grid__item .card__information {
-    display: none;
+    display: block;
 }
 
 @media screen and (max-width: 749px) {

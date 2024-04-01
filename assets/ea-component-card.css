@@ -16,7 +16,7 @@
     height: 100%;
   }
 
-  .card.card--standard:hover {
+  .card.card--standard.card--media:hover > a {
     border: 0.5px solid #000000;
   }
   
@@ -377,6 +377,8 @@
   
   .card-information > .price {
     color: rgb(var(--color-foreground));
+    font-size: 12px;
+    margin-top: 0;
   }
   
   .card--horizontal .card-information > .price {
@@ -385,10 +387,6 @@
   
   .card-information > .rating {
     margin-top: 0.4rem;
-  }
-  
-  .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
-    margin-top: 0.7rem;
   }
   
   .card-information .caption {

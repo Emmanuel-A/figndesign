@@ -42,10 +42,18 @@ p  {
   }
 
   .product-card-wrapper .card .card__content {
-    display: none;
+    display: block;
   }
 
   .product-card-wrapper .card:hover .card__content {
+    display: block;
+  }
+
+  .product-card-wrapper .card .card__content .quick-add__submit {
+    display: none;
+  }
+
+  .product-card-wrapper .card:hover .card__content .quick-add__submit {
     display: block;
   }
   
