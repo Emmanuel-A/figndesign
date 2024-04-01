@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'ea-component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'ea-component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'ea-component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'ea-component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -21,7 +21,7 @@
   {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'ea-component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'ea-component-search.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'ea-component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'ea-component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
@@ -63,6 +63,7 @@
 
   summary.list-menu__item {
     padding-right: 2.7rem;
+    column-gap: 1rem
   }
 
   .list-menu__item {
@@ -228,9 +229,9 @@
         </span>
         <span class="mega-menu"></span>
       </span>
-      <span class="header-divider">
+      {% comment %} <span class="header-divider">
         {% include 'header-divider' %}
-      </span>
+      </span> {% endcomment %}
       <span class="first-level-link">
         <span class="link">Collections<span class="icon-caret">{% render 'icon-caret' %}</span></span> 
         <span class="second-level-link submenu megamenu">

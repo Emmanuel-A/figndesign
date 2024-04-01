@@ -2061,6 +2061,7 @@ p  {
   
   .quantity__input[type='number'] {
     -moz-appearance: textfield;
+    border-radius: 0;
     border-left: 1px solid rgb(var(--color-foreground));
     border-right: 1px solid rgb(var(--color-foreground));
   }
@@ -2439,8 +2440,8 @@ p  {
     position: relative;
     background-color: #ffffffbf !important;
     border-bottom: 1px solid #d4d4d459;
-    height: 65px;
     z-index: 4;
+    padding: 15px 0;
   }
   
   .header-wrapper--border-bottom {
@@ -2845,10 +2846,10 @@ p  {
   }
 
   .header__icon--menu .icon.icon-close {
-    z-index: 4;
+    z-index: 10000;
     right: 20px;
     width: 15px;
-    top: -20px;
+    top: 8px;
   }
   
   details:not([open]) > .header__icon--menu .icon-close,
