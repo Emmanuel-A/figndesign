@@ -378,6 +378,7 @@
   .card-information > .price {
     color: rgb(var(--color-foreground));
     font-size: 12px;
+    font-family: 'Futura Book', sans-serif;
     margin-top: 0;
   }
   

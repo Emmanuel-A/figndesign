@@ -31,6 +31,11 @@
     align-items: center;
 }
 
+.header .top-nav-wrapper .header__inline-menu .list-menu .Identity,
+.header .top-nav-wrapper .header__inline-menu .list-menu .Contact {
+    display: none;
+}
+
 .header .top-nav-wrapper .first-level-link .link {
     display: flex;
     align-items: center;
@@ -56,22 +61,29 @@
 .header .top-nav-wrapper .first-level-link .second-level-link {
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    height: 0;
+    /* height: 0; */
     width: 100%;
     max-width: 100%;
     overflow: hidden;
     position: absolute;
     left: 0;
-    top: 65px;
+    top: 60px;
     z-index: 1;
+    visibility: hidden;
     background-color: #ffffff;
     box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius) rgba(var(--color-shadow), var(--popup-shadow-opacity));
     padding: 0 0 25px 0;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.header .top-nav-wrapper .first-level-link .second-level-link.show {
+    /* height: 100%; */
+    visibility: visible;
 }
 
 .header .top-nav-wrapper .first-level-link:hover .second-level-link {
     display: grid;
-    height: auto;
+    visibility: visible;
     overflow: none;
 }
 

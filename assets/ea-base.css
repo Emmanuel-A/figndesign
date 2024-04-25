@@ -833,6 +833,8 @@ p  {
   .title,
   .title-wrapper-with-link {
     margin: 3rem 0 2rem;
+    font-family: 'Futura Medium', sans-serif;
+    letter-spacing: 0;
   }
   
   .title-wrapper-with-link .title {
@@ -2441,7 +2443,7 @@ p  {
     background-color: #ffffffbf !important;
     border-bottom: 1px solid #d4d4d459;
     z-index: 4;
-    padding: 15px 0;
+    padding: 0;
   }
   
   .header-wrapper--border-bottom {
@@ -2552,19 +2554,13 @@ p  {
     height: auto;
     width: 50px;
     max-width: 100%;
-    margin-top: -5px;
+    padding: 5px 0;
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
   }
 
   .header__heading-link:hover .header__heading-logo {
     opacity: 0.5;
-  }
-
-  @media screen and (max-width: 749px) {
-    .header__heading-logo {
-      margin-top: 7px;
-    }
   }
   
   .header__heading-logo-wrapper {
@@ -2849,7 +2845,7 @@ p  {
     z-index: 10000;
     right: 20px;
     width: 15px;
-    top: 8px;
+    top: -30px;
   }
   
   details:not([open]) > .header__icon--menu .icon-close,
@@ -2922,7 +2918,7 @@ p  {
   }
   
   .header__menu-item {
-    padding: 1.2rem;
+    padding: 2.2rem;
     text-decoration: none;
     color: rgba(var(--color-foreground), 0.75);
   }
@@ -2933,11 +2929,16 @@ p  {
   
   .header__menu-item span {
     transition: text-decoration var(--duration-short) ease;
+    font-size: 18px;
   }
   
   .header__menu-item:hover span {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
+  }
+
+  details > .header__menu-item .icon-caret {
+    transition: transform 0.25s ease-in-out;
   }
   
   details[open] > .header__menu-item {
@@ -2949,7 +2950,7 @@ p  {
   }
   
   details[open] > .header__menu-item .icon-caret {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
   }
   
   .header__active-menu-item {
@@ -2985,7 +2986,7 @@ p  {
   .header__submenu .header__submenu {
     background-color: rgba(var(--color-foreground), 0.03);
     padding: 1rem 0;
-    margin: 1rem 0;
+    margin: 0;
   }
   
   .header__submenu .header__menu-item:after {

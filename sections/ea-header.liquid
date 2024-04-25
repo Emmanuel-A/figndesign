@@ -8,10 +8,9 @@
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-{%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-  <noscript>{{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
-{%- endif -%}
+
+<link rel="stylesheet" href="{{ 'ea-component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'ea-component-mega-menu.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- if settings.cart_type == "drawer" -%}
   {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
@@ -176,69 +175,8 @@
       {%- endif -%}
     {%- endif -%}
 
-    {% comment %} {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'ea-header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %} {% endcomment %}
-
     <top-nav-wrapper class="top-nav-wrapper">
-      <span class="first-level-link">
-        <span class="link">Products<span class="icon-caret">{% render 'icon-caret' %}</span></span> 
-        <span class="second-level-link submenu megamenu">
-          <span class="menu-wrapper seating">
-            <p class="menu-title">Seating</p>
-            <ul class="links-wrapper">
-              <li><a href="">All seating</a></li>
-              <li><a href="">Dining Chairs</a></li>
-              <li><a href="">Lounge Chairs</a></li>
-              <li><a href="">Meeting Chairs</a></li>
-              <li><a href="">Ottomans & Poufs</a></li>
-              <li><a href="">Sofas</a></li>
-              <li><a href="">Stools & Bar Chairs</a></li>
-            </ul>
-          </span>
-
-          <span class="menu-wrapper illumination">
-            <p class="menu-title">Illumination & Objects</p>
-            <ul class="links-wrapper">
-              <li><a href="">All objects</a></li>
-              <li><a href="">Bookcases & Shelves</a></li>
-              <li><a href="">Floor Lamps</a></li>
-              <li><a href="">Mirrors</a></li>
-              <li><a href="">Rugs</a></li>
-              <li><a href="">Stereo Consoles</a></li>
-              <li><a href="">Wall Lamps</a></li>
-            </ul>
-          </span>
-
-          <span class="menu-wrapper illumination">
-            <p class="menu-title">Tables</p>
-            <ul class="links-wrapper">
-              <li><a href="">All tables</a></li>
-              <li><a href="">Coffee Tables</a></li>
-              <li><a href="">Consoles</a></li>
-              <li><a href="">Dining Tables</a></li>
-              <li><a href="">Lounge Tables</a></li>
-            </ul>
-          </span>
-        </span>
-        <span class="mega-menu"></span>
-      </span>
-      {% comment %} <span class="header-divider">
-        {% include 'header-divider' %}
-      </span> {% endcomment %}
-      <span class="first-level-link">
-        <span class="link">Collections<span class="icon-caret">{% render 'icon-caret' %}</span></span> 
-        <span class="second-level-link submenu megamenu">
-          
-        </span>
-        <span class="mega-menu"></span>
-      </span>
+      {%- render 'ea-header-mega-menu' -%}
     </top-nav-wrapper>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
@@ -372,13 +310,27 @@
         {%- endif -%}
       </a>
 
-      {%- liquid 
-         if section.settings.menu != blank
-        render 'ea-header-drawer'
-      endif -%}
+      {%- render 'ea-header-drawer' -%}
+
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+
+<script>
+  let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+  items.forEach(item => {
+    item.addEventListener("mouseover", () => {
+      item.setAttribute("open", true);
+      item.querySelector("ul").addEventListener("mouseleave", () => {
+        setTimeout(item.removeAttribute("open"), 3000);
+      });
+    item.addEventListener("mouseleave", () => {
+      setTimeout(item.removeAttribute("open"), 3000);
+    });
+  });
+  
+  });
+</script>
 
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
