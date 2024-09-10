@@ -25,8 +25,7 @@
   {%- assign show_selectors = true -%}
 {%- endif -%}
 
-{%- if
-  settings.social_twitter_link != blank
+{%- if settings.social_twitter_link != blank
   or settings.social_facebook_link != blank
   or settings.social_pinterest_link != blank
   or settings.social_instagram_link != blank
@@ -40,17 +39,17 @@
   {%- assign social_icons = true -%}
 {%- endif -%}
 
-{%- assign payment_width_class = "one-half" -%}
+{%- assign payment_width_class = 'one-half' -%}
 {%- if show_selectors -%}
   {%- unless social_icons -%}
-    {%- assign payment_width_class = "" -%}
+    {%- assign payment_width_class = '' -%}
   {%- endunless -%}
 {%- endif -%}
 
-{%- assign copyright_show_class = "medium-up--hide" -%}
+{%- assign copyright_show_class = 'medium-up--hide' -%}
 {%- if social_icons -%}
   {%- unless show_selectors -%}
-    {%- assign copyright_show_class = "" -%}
+    {%- assign copyright_show_class = '' -%}
   {%- endunless -%}
 {%- endif -%}
 
@@ -122,7 +121,6 @@
   }
 </style>
 
-
 {%- capture payment_icon_markup -%}
   {%- if show_payment_icons -%}
     {% comment %} <div class="grid__item site-footer__payment-icons">
@@ -139,8 +137,8 @@
 {%- endcapture -%}
 
 <footer class="site-footer" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  <div>  
-    <div>  
+  <div>
+    <div>
       <div class="page-width">
         <div class="site-footer__content">
           <div class="footer_block empty">
@@ -155,10 +153,11 @@
             <div class="footer_links">
               <div class="links_wrapper">
                 <p class="heading">
-                <span class="stay_updated_arrow">
-                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
-                </span>Information</p>
-                <p>{{ section.settings.about-info }}</p>
+                  <span class="stay_updated_arrow">
+                    {% comment %} {% include 'black-arrow-right' %} {% endcomment %}</span
+                  >Information
+                </p>
+                <p>{{ section.settings['about-info'] }}</p>
               </div>
             </div>
           </div>
@@ -167,17 +166,18 @@
             <div class="footer_links">
               <div class="links_wrapper">
                 <p class="heading">
-                <span class="black_arrow">
-                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
-                </span>Navigation</p>
+                  <span class="black_arrow">
+                    {% comment %} {% include 'black-arrow-right' %} {% endcomment %}</span
+                  >Navigation
+                </p>
                 <ul class="assistance">
-                  {% for link in linklists.footer-navigation.links %}
+                  {% for link in linklists['footer-navigation'].links %}
                     <!-- menu content -->
-                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                  {% endfor %} 
-                  
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
                 </ul>
-                    
               </div>
             </div>
           </div>
@@ -186,14 +186,32 @@
             <div class="footer_links">
               <div class="links_wrapper">
                 <p class="heading">
-                <span class="black_arrow">
-                  {% comment %} {% include 'black-arrow-right' %} {% endcomment %}
-                </span>Contact Us</p>
+                  <span class="black_arrow">
+                    {% comment %} {% include 'black-arrow-right' %} {% endcomment %}</span
+                  >Contact Us
+                </p>
                 <div class="site-footer__newsletter {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                  <h4>Stay Inspired with Fign</h4>
+                  <p>
+                    Dive into a world where design meets individuality. Sign up to receive the latest news from Fign,
+                    including exclusive previews, limited edition releases, and special VIP invites.
+                  </p>
                   {% form 'customer' %}
                     <div class="input-group ">
-                      <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter" />
-                      <input id="ContactFooter-email" class="omnisend-subscribe-input-email" name="contact[email]" type="text" value="" placeholder="Email address" aria-label="Email address" aria-required="true" required autocorrect="off" autocapitalize="off"/>
+                      <input id="contact_tags" name="contact[tags]" type="hidden" value="prospect,newsletter">
+                      <input
+                        id="ContactFooter-email"
+                        class="omnisend-subscribe-input-email"
+                        name="contact[email]"
+                        type="text"
+                        value=""
+                        placeholder="Email*"
+                        aria-label="Email*"
+                        aria-required="true"
+                        required
+                        autocorrect="off"
+                        autocapitalize="off"
+                      >
                       <span class="input-group__btn">
                         <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
                           <span class="newsletter__submit-text--large">Subscribe</span>
@@ -212,7 +230,10 @@
         <div class="site-footer__content">
           <div class="footer_block">
             <div class="small--one-whole {{ copyright_show_class }}">
-              <small class="site-footer__copyright-content">Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</small>
+              <small class="site-footer__copyright-content"
+                >Copyright &copy; {{ 'now' | date: '%Y' }}
+                {{ shop.name | link_to: routes.root_url -}}
+              </small>
             </div>
           </div>
         </div>
@@ -220,8 +241,6 @@
     </div>
   </div>
 </footer>
-
-
 
 {% schema %}
 {
