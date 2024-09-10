@@ -316,22 +316,6 @@
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
-<script>
-  let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
-  items.forEach(item => {
-    item.addEventListener("mouseover", () => {
-      item.setAttribute("open", true);
-      item.querySelector("ul").addEventListener("mouseleave", () => {
-        setTimeout(item.removeAttribute("open"), 3000);
-      });
-    item.addEventListener("mouseleave", () => {
-      setTimeout(item.removeAttribute("open"), 3000);
-    });
-  });
-  
-  });
-</script>
-
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%}
@@ -346,6 +330,20 @@
       this.header = document.querySelector('.section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
+
+      // let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+      // items.forEach(item => {
+      //   item.addEventListener("mouseover", () => {
+      //     item.setAttribute("open", true);
+      //     item.querySelector("ul").addEventListener("mouseleave", () => {
+      //      item.removeAttribute("open");
+      //     });
+      //   item.addEventListener("mouseleave", () => {
+      //     item.removeAttribute("open");
+      //   });
+      // });
+      
+      // });
 
       this.setHeaderHeight();
 

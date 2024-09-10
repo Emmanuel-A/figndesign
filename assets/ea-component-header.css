@@ -32,6 +32,7 @@
 }
 
 .header .top-nav-wrapper .header__inline-menu .list-menu .Identity,
+.header .top-nav-wrapper .header__inline-menu .list-menu .Custom,
 .header .top-nav-wrapper .header__inline-menu .list-menu .Contact {
     display: none;
 }

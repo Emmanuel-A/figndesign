@@ -25,12 +25,31 @@
     opacity: 0;
     transform: translateY(-1.5rem);
   }
+
+  .mega-menu .mega-menu__content > * {
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+  }
+
+  .mega-menu .mega-menu__content .mega-menu__list li a.mega-menu__link.mega-menu__link--level-2.link {
+    font-family: 'Futura Medium', sans-serif;
+    font-size: 16px;
+  }
+
+  .mega-menu .mega-menu__content .mega-menu__list li .list-unstyled li:first-child a {
+    margin: 10px 0;
+    font-style: italic;
+  } 
   
   .mega-menu[open] .mega-menu__content {
     opacity: 1;
     transform: translateY(0);
   }
   
+  .mega-menu[open] .mega-menu__content > * {
+    opacity: 1;
+  }
+
   .mega-menu__list {
     display: grid;
     gap: 1.8rem 4rem;
@@ -38,15 +57,32 @@
     list-style: none;
   }
   
+  .mega-menu__list .collection_list_item {
+    display: inline-block;
+    margin: 0 3rem;
+  }
+
+  .mega-menu__list .collection_list_item .collection_link {
+    text-decoration: none;
+    color: currentColor;
+    text-underline-offset: .3rem;
+  }
+
+  .mega-menu__list .collection_list_item:hover .collection_link {
+    text-decoration: underline;
+  }
+
   .mega-menu__link {
+    font-family: 'Futura Light', sans-serif;
     color: rgba(var(--color-foreground), 0.75);
     display: block;
     line-height: calc(1 + 0.3 / var(--font-body-scale));
     padding-bottom: 0;
-    padding-top: 0.6rem;
+    padding-top: 0.2rem;
     text-decoration: none;
     transition: text-decoration var(--duration-short) ease;
     word-wrap: break-word;
+    
   }
   
   .mega-menu__link--level-2 {
@@ -83,3 +119,29 @@
     font-weight: normal;
   }
   
+  .mega-menu__content .browse_btn_wrap {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .mega-menu__content .browse_btn_wrap a {
+    font-family: Futura Light, sans-serif !important;
+    background-color: #000;
+    color: #ccc;
+    letter-spacing: 0;
+    max-width: 200px;
+    width: 100%;
+    min-height: 30px;
+    padding: 10px 40px;
+    border-radius: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+  }
+
+  .mega-menu__content .browse_btn_wrap a:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }

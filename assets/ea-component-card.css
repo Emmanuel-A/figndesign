@@ -16,8 +16,14 @@
     height: 100%;
   }
 
+  .card.card--standard.card--media a {
+    opacity: 1;
+    transition: opacity 0.35s ease-in;
+  }
+
   .card.card--standard.card--media:hover > a {
     border: 0.5px solid #000000;
+    opacity: 0.5;
   }
   
   .card.card--horizontal {

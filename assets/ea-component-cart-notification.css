@@ -43,7 +43,11 @@
   .cart-notification {
     border-width: 0 var(--popup-border-width) var(--popup-border-width);
     max-width: 36.8rem;
-    right: 2.2rem;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
   }
 }
 

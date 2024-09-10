@@ -755,6 +755,8 @@
   
   .mobile-facets__open-label {
     transition: text-decoration var(--duration-short) ease;
+    font-family: 'Futura Light', sans-serif;
+    letter-spacing: 0;
   }
   
   .mobile-facets__open:hover .mobile-facets__open-label {
@@ -868,6 +870,12 @@
   .mobile-facets__summary {
     padding: 1.3rem 2.5rem;
   }
+
+  .mobile-facets__summary span, 
+  .mobile-facets__close-button span,
+  .mobile-facets__summary label {
+    font-family: 'Futura Light', sans-serif;
+  }
   
   .mobile-facets__summary svg {
     margin-left: auto;
@@ -926,6 +934,7 @@
   }
   
   .mobile-facets__label {
+    font-family: 'Futura Light', sans-serif;
     padding: 1.5rem 2rem 1.5rem 2.5rem;
     width: 100%;
     transition: background-color 0.2s ease;
@@ -968,6 +977,11 @@
     margin-top: auto;
     background-color: rgb(var(--color-background));
     background: var(--gradient-background);
+  }
+
+  .mobile-facets__footer button {
+    font-family: 'Futura Light', sans-serif;
+    letter-spacing: 0;
   }
   
   .mobile-facets__footer > * + * {
